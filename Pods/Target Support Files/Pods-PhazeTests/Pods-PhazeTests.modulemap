@@ -1,0 +1,6 @@
+framework module Pods_PhazeTests {
+  umbrella header "Pods-PhazeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
