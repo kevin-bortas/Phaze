@@ -7,6 +7,7 @@ target 'Phaze' do
 
   # Pods for Phaze
   pod 'TensorFlowLiteSwift'
+  pod 'Charts'
 
   target 'PhazeTests' do
     inherit! :search_paths

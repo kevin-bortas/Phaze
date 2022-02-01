@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapLoginButton(sender: UIButton) {
-        if (txtUsername.text! == "kevin" && txtPassword.text! == "123"){
+        if (txtUsername.text! == "" && txtPassword.text! == ""){
             goToMainActivity()
         }
         else {

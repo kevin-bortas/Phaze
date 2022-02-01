@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A4526D827A994BC00F47E79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A4526D327A994BC00F47E79 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		0A4526DA27A994BC00F47E79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A4526D327A994BC00F47E79 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
 		0AB724A327849BD4005CA6A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0AB7248427849BD3005CA6A4 /* Project object */;
@@ -63,6 +77,7 @@
 		0A0038A627983363004608D0 /* ModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataHandler.swift; sourceTree = "<group>"; };
 		0A4526CF27A986DE00F47E79 /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = labels.txt; path = ../../../../android_app/app/Phaze/app/src/main/ml/labels.txt; sourceTree = "<group>"; };
 		0A4526D027A986DE00F47E79 /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = converted_model.tflite; path = ../../../../android_app/app/Phaze/app/src/main/ml/converted_model.tflite; sourceTree = "<group>"; };
+		0A4526D327A994BC00F47E79 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		0A7ECAAC27983E4C0021A41E /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceViewController.swift; sourceTree = "<group>"; };
 		0A7ECAB1279841460021A41E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -147,6 +162,15 @@
 				0AD1206B279DF872007609A5 /* ModelResultsHolder.swift */,
 			);
 			path = modelDataHandler;
+			sourceTree = "<group>";
+		};
+		0A4526D427A994BC00F47E79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A4526D927A994BC00F47E79 /* Charts.framework */,
+				0A4526DB27A994BC00F47E79 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		0A7ECAAB27983E3E0021A41E /* Views */ = {
@@ -256,6 +280,7 @@
 		3D48642986F01C5776013A90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A4526D327A994BC00F47E79 /* Charts.xcodeproj */,
 				CEF2C2F5030DFB298D1BD115 /* Pods_Phaze.framework */,
 				23156C857B38B014441DC87C /* Pods_Phaze_PhazeUITests.framework */,
 				3E82171E3C64A086A0FB4EAD /* Pods_PhazeTests.framework */,
@@ -287,6 +312,7 @@
 				0AB7248827849BD3005CA6A4 /* Sources */,
 				0AB7248927849BD3005CA6A4 /* Frameworks */,
 				0AB7248A27849BD3005CA6A4 /* Resources */,
+				F07D9C5E40B30DCA928DBA8D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,6 +350,7 @@
 				0AB724A927849BD4005CA6A4 /* Sources */,
 				0AB724AA27849BD4005CA6A4 /* Frameworks */,
 				0AB724AB27849BD4005CA6A4 /* Resources */,
+				3172E51A9286AAF670F98AD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +396,12 @@
 			mainGroup = 0AB7248327849BD3005CA6A4;
 			productRefGroup = 0AB7248D27849BD3005CA6A4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0A4526D427A994BC00F47E79 /* Products */;
+					ProjectRef = 0A4526D327A994BC00F47E79 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0AB7248B27849BD3005CA6A4 /* Phaze */,
@@ -377,6 +410,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0A4526D927A994BC00F47E79 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 0A4526D827A994BC00F47E79 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A4526DB27A994BC00F47E79 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 0A4526DA27A994BC00F47E79 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0AB7248A27849BD3005CA6A4 /* Resources */ = {
@@ -408,6 +458,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3172E51A9286AAF670F98AD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		38FECB55129107E134A9122B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,6 +539,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F07D9C5E40B30DCA928DBA8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phaze/Pods-Phaze-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phaze/Pods-Phaze-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phaze/Pods-Phaze-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
