@@ -31,6 +31,9 @@ class MainActivityDisplayController: UIViewController {
         
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
+        let screenWidth = self.view.frame.size.width
+        let screenHeight = self.view.frame.size.height
+        contentView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         contentView.addSubview(pageViewController.view)
         
         let views: [String: Any] = ["pageView": pageViewController.view]
@@ -104,12 +107,7 @@ class MainActivityDisplayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("here")
-        
         configurePageViewController()
-
-        // Do any additional setup after loading the view.
     }
 }
 

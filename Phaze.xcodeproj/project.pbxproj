@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A0038A1279729B0004608D0 /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 0A00389F279729B0004608D0 /* converted_model.tflite */; };
-		0A0038A2279729B0004608D0 /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A0038A0279729B0004608D0 /* labels.txt */; };
 		0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0038A327982E9B004608D0 /* FoodViewController.swift */; };
 		0A0038A727983363004608D0 /* ModelDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0038A627983363004608D0 /* ModelDataHandler.swift */; };
+		0A4526D127A986DE00F47E79 /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A4526CF27A986DE00F47E79 /* labels.txt */; };
+		0A4526D227A986DE00F47E79 /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 0A4526D027A986DE00F47E79 /* converted_model.tflite */; };
 		0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAC27983E4C0021A41E /* CurvedView.swift */; };
 		0A7ECAAF27983E8F0021A41E /* InferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */; };
 		0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB1279841460021A41E /* InfoCell.swift */; };
@@ -59,10 +59,10 @@
 
 /* Begin PBXFileReference section */
 		09BB3792422D6E27BEE3B465 /* Pods-PhazeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.debug.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0A00389F279729B0004608D0 /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = converted_model.tflite; path = ../../../../../../android_app/app/Phaze/app/src/main/ml/converted_model.tflite; sourceTree = "<group>"; };
-		0A0038A0279729B0004608D0 /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = labels.txt; path = ../../../../../../android_app/app/Phaze/app/src/main/ml/labels.txt; sourceTree = "<group>"; };
 		0A0038A327982E9B004608D0 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		0A0038A627983363004608D0 /* ModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataHandler.swift; sourceTree = "<group>"; };
+		0A4526CF27A986DE00F47E79 /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = labels.txt; path = ../../../../android_app/app/Phaze/app/src/main/ml/labels.txt; sourceTree = "<group>"; };
+		0A4526D027A986DE00F47E79 /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = converted_model.tflite; path = ../../../../android_app/app/Phaze/app/src/main/ml/converted_model.tflite; sourceTree = "<group>"; };
 		0A7ECAAC27983E4C0021A41E /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceViewController.swift; sourceTree = "<group>"; };
 		0A7ECAB1279841460021A41E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		0A00389E27972907004608D0 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				0A00389F279729B0004608D0 /* converted_model.tflite */,
-				0A0038A0279729B0004608D0 /* labels.txt */,
+				0A4526D027A986DE00F47E79 /* converted_model.tflite */,
+				0A4526CF27A986DE00F47E79 /* labels.txt */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -384,9 +384,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AB7249C27849BD4005CA6A4 /* LaunchScreen.storyboard in Resources */,
+				0A4526D227A986DE00F47E79 /* converted_model.tflite in Resources */,
+				0A4526D127A986DE00F47E79 /* labels.txt in Resources */,
 				0AB7249927849BD4005CA6A4 /* Assets.xcassets in Resources */,
-				0A0038A2279729B0004608D0 /* labels.txt in Resources */,
-				0A0038A1279729B0004608D0 /* converted_model.tflite in Resources */,
 				0AB7249727849BD3005CA6A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
