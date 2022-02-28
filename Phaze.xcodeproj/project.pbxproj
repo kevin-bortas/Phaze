@@ -35,9 +35,10 @@
 		0AD12068279DE5F8007609A5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12067279DE5F8007609A5 /* ImageViewController.swift */; };
 		0AD1206A279DEAFC007609A5 /* FoodResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12069279DEAFC007609A5 /* FoodResultsCell.swift */; };
 		0AD1206C279DF872007609A5 /* ModelResultsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1206B279DF872007609A5 /* ModelResultsHolder.swift */; };
-		929407B900D9378F1032335A /* Pods_PhazeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E82171E3C64A086A0FB4EAD /* Pods_PhazeTests.framework */; };
-		D8544F384AADE3EDDC461403 /* Pods_Phaze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF2C2F5030DFB298D1BD115 /* Pods_Phaze.framework */; };
-		DC5DE2227C5B7A6588F72C74 /* Pods_Phaze_PhazeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23156C857B38B014441DC87C /* Pods_Phaze_PhazeUITests.framework */; };
+		0CB92BE8CB3628827F45223A /* Pods_Phaze_PhazeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */; };
+		1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */; };
+		3DEBDA46BADFD2CCCD132627 /* Pods_Phaze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC5BE926D83EC31E4B5BFC1 /* Pods_Phaze.framework */; };
+		8EBDAE78F2A986475993F8C3 /* Pods_PhazeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09BB3792422D6E27BEE3B465 /* Pods-PhazeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.debug.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0A0038A327982E9B004608D0 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		0A0038A627983363004608D0 /* ModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataHandler.swift; sourceTree = "<group>"; };
 		0A4526D327A994BC00F47E79 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
@@ -108,14 +108,16 @@
 		0AD12067279DE5F8007609A5 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AD12069279DEAFC007609A5 /* FoodResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResultsCell.swift; sourceTree = "<group>"; };
 		0AD1206B279DF872007609A5 /* ModelResultsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResultsHolder.swift; sourceTree = "<group>"; };
-		23156C857B38B014441DC87C /* Pods_Phaze_PhazeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Phaze_PhazeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E82171E3C64A086A0FB4EAD /* Pods_PhazeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhazeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E3455905500AEF1AA6922B0 /* Pods-Phaze.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze.release.xcconfig"; path = "Target Support Files/Pods-Phaze/Pods-Phaze.release.xcconfig"; sourceTree = "<group>"; };
-		9CF8551A4CB85BA0D36D7931 /* Pods-Phaze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze.debug.xcconfig"; path = "Target Support Files/Pods-Phaze/Pods-Phaze.debug.xcconfig"; sourceTree = "<group>"; };
-		A8EF2BBA224DB7C16D2416BF /* Pods-Phaze-PhazeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze-PhazeUITests.release.xcconfig"; path = "Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests.release.xcconfig"; sourceTree = "<group>"; };
-		CEF2C2F5030DFB298D1BD115 /* Pods_Phaze.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Phaze.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6BC184DFD90776B1EE5A09B /* Pods-Phaze-PhazeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze-PhazeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EB9590BCE9E368168B671A1D /* Pods-PhazeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.release.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.release.xcconfig"; sourceTree = "<group>"; };
+		16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhazeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		4A3207AAE63353C6F7EEFCC9 /* Pods-Phaze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze.debug.xcconfig"; path = "Target Support Files/Pods-Phaze/Pods-Phaze.debug.xcconfig"; sourceTree = "<group>"; };
+		75565EFF55C436A2943A2FE7 /* Pods-PhazeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.debug.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		85806195E1C6E203887502AA /* Pods-Phaze-PhazeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze-PhazeUITests.release.xcconfig"; path = "Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9FE75A4454CF36F29486A3C4 /* Pods-Phaze.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze.release.xcconfig"; path = "Target Support Files/Pods-Phaze/Pods-Phaze.release.xcconfig"; sourceTree = "<group>"; };
+		A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Phaze_PhazeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F1027ECA3D9F994CDE10E8 /* Pods-PhazeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.release.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.release.xcconfig"; sourceTree = "<group>"; };
+		ECC5BE926D83EC31E4B5BFC1 /* Pods_Phaze.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Phaze.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBCF664AB66AA1452CD4AB9B /* Pods-Phaze-PhazeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze-PhazeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8544F384AADE3EDDC461403 /* Pods_Phaze.framework in Frameworks */,
+				3DEBDA46BADFD2CCCD132627 /* Pods_Phaze.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929407B900D9378F1032335A /* Pods_PhazeTests.framework in Frameworks */,
+				8EBDAE78F2A986475993F8C3 /* Pods_PhazeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5DE2227C5B7A6588F72C74 /* Pods_Phaze_PhazeUITests.framework in Frameworks */,
+				0CB92BE8CB3628827F45223A /* Pods_Phaze_PhazeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,13 +182,6 @@
 				0AD12069279DEAFC007609A5 /* FoodResultsCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		0A7ECAB3279842940021A41E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0A85353127AC155B00E9C33A /* Model */ = {
@@ -233,7 +228,6 @@
 			children = (
 				0A85353127AC155B00E9C33A /* Model */,
 				0A97B01727A2E648009C1586 /* misc */,
-				0A7ECAB3279842940021A41E /* Extensions */,
 				0A7ECAB0279841360021A41E /* Cells */,
 				0A7ECAAB27983E3E0021A41E /* Views */,
 				0A0038A52798333D004608D0 /* modelDataHandler */,
@@ -242,6 +236,7 @@
 				0AB7249327849BD3005CA6A4 /* ViewController.swift */,
 				0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */,
 				0A0038A327982E9B004608D0 /* FoodViewController.swift */,
+				1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */,
 				0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */,
 				0AB7249527849BD3005CA6A4 /* Main.storyboard */,
 				0AB7249827849BD4005CA6A4 /* Assets.xcassets */,
@@ -281,9 +276,9 @@
 			isa = PBXGroup;
 			children = (
 				0A4526D327A994BC00F47E79 /* Charts.xcodeproj */,
-				CEF2C2F5030DFB298D1BD115 /* Pods_Phaze.framework */,
-				23156C857B38B014441DC87C /* Pods_Phaze_PhazeUITests.framework */,
-				3E82171E3C64A086A0FB4EAD /* Pods_PhazeTests.framework */,
+				ECC5BE926D83EC31E4B5BFC1 /* Pods_Phaze.framework */,
+				A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */,
+				16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -291,12 +286,12 @@
 		AAE4CF1975AA825EE3BCC97A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9CF8551A4CB85BA0D36D7931 /* Pods-Phaze.debug.xcconfig */,
-				8E3455905500AEF1AA6922B0 /* Pods-Phaze.release.xcconfig */,
-				D6BC184DFD90776B1EE5A09B /* Pods-Phaze-PhazeUITests.debug.xcconfig */,
-				A8EF2BBA224DB7C16D2416BF /* Pods-Phaze-PhazeUITests.release.xcconfig */,
-				09BB3792422D6E27BEE3B465 /* Pods-PhazeTests.debug.xcconfig */,
-				EB9590BCE9E368168B671A1D /* Pods-PhazeTests.release.xcconfig */,
+				4A3207AAE63353C6F7EEFCC9 /* Pods-Phaze.debug.xcconfig */,
+				9FE75A4454CF36F29486A3C4 /* Pods-Phaze.release.xcconfig */,
+				FBCF664AB66AA1452CD4AB9B /* Pods-Phaze-PhazeUITests.debug.xcconfig */,
+				85806195E1C6E203887502AA /* Pods-Phaze-PhazeUITests.release.xcconfig */,
+				75565EFF55C436A2943A2FE7 /* Pods-PhazeTests.debug.xcconfig */,
+				C5F1027ECA3D9F994CDE10E8 /* Pods-PhazeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -308,11 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AB724B627849BD4005CA6A4 /* Build configuration list for PBXNativeTarget "Phaze" */;
 			buildPhases = (
-				C64A6D7E05463E4DB7C76720 /* [CP] Check Pods Manifest.lock */,
+				1F1BA2ECDC4F0F05DD1CD28B /* [CP] Check Pods Manifest.lock */,
 				0AB7248827849BD3005CA6A4 /* Sources */,
 				0AB7248927849BD3005CA6A4 /* Frameworks */,
 				0AB7248A27849BD3005CA6A4 /* Resources */,
-				F07D9C5E40B30DCA928DBA8D /* [CP] Embed Pods Frameworks */,
+				7C24D2E412937751D29C3555 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,7 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AB724B927849BD4005CA6A4 /* Build configuration list for PBXNativeTarget "PhazeTests" */;
 			buildPhases = (
-				B60F0C957D10B7A432FA74C1 /* [CP] Check Pods Manifest.lock */,
+				FB1E986AD0E6E26DDB375C92 /* [CP] Check Pods Manifest.lock */,
 				0AB7249E27849BD4005CA6A4 /* Sources */,
 				0AB7249F27849BD4005CA6A4 /* Frameworks */,
 				0AB724A027849BD4005CA6A4 /* Resources */,
@@ -346,11 +341,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AB724BC27849BD4005CA6A4 /* Build configuration list for PBXNativeTarget "PhazeUITests" */;
 			buildPhases = (
-				38FECB55129107E134A9122B /* [CP] Check Pods Manifest.lock */,
+				0CCCE9ACE3CAA69DDEB7277E /* [CP] Check Pods Manifest.lock */,
 				0AB724A927849BD4005CA6A4 /* Sources */,
 				0AB724AA27849BD4005CA6A4 /* Frameworks */,
 				0AB724AB27849BD4005CA6A4 /* Resources */,
-				3172E51A9286AAF670F98AD5 /* [CP] Embed Pods Frameworks */,
+				BB5F3359A6BE93C1A990527C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -458,24 +453,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3172E51A9286AAF670F98AD5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		38FECB55129107E134A9122B /* [CP] Check Pods Manifest.lock */ = {
+		0CCCE9ACE3CAA69DDEB7277E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -497,29 +475,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B60F0C957D10B7A432FA74C1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PhazeTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C64A6D7E05463E4DB7C76720 /* [CP] Check Pods Manifest.lock */ = {
+		1F1BA2ECDC4F0F05DD1CD28B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -541,7 +497,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F07D9C5E40B30DCA928DBA8D /* [CP] Embed Pods Frameworks */ = {
+		7C24D2E412937751D29C3555 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -558,6 +514,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phaze/Pods-Phaze-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BB5F3359A6BE93C1A990527C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB1E986AD0E6E26DDB375C92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhazeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -567,6 +562,7 @@
 			files = (
 				0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */,
 				0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */,
+				1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */,
 				0A0038A727983363004608D0 /* ModelDataHandler.swift in Sources */,
 				0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */,
 				0AD12065279DE053007609A5 /* FoodResultsLauncher.swift in Sources */,
@@ -756,17 +752,17 @@
 		};
 		0AB724B727849BD4005CA6A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CF8551A4CB85BA0D36D7931 /* Pods-Phaze.debug.xcconfig */;
+			baseConfigurationReference = 4A3207AAE63353C6F7EEFCC9 /* Pods-Phaze.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NH85SD292Y;
+				DEVELOPMENT_TEAM = 7T6NF3247W;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UnKown.Phaze;
+				PRODUCT_BUNDLE_IDENTIFIER = kevincogan.Phaze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -775,17 +771,17 @@
 		};
 		0AB724B827849BD4005CA6A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E3455905500AEF1AA6922B0 /* Pods-Phaze.release.xcconfig */;
+			baseConfigurationReference = 9FE75A4454CF36F29486A3C4 /* Pods-Phaze.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NH85SD292Y;
+				DEVELOPMENT_TEAM = 7T6NF3247W;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UnKown.Phaze;
+				PRODUCT_BUNDLE_IDENTIFIER = kevincogan.Phaze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -794,7 +790,7 @@
 		};
 		0AB724BA27849BD4005CA6A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09BB3792422D6E27BEE3B465 /* Pods-PhazeTests.debug.xcconfig */;
+			baseConfigurationReference = 75565EFF55C436A2943A2FE7 /* Pods-PhazeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -817,7 +813,7 @@
 		};
 		0AB724BB27849BD4005CA6A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB9590BCE9E368168B671A1D /* Pods-PhazeTests.release.xcconfig */;
+			baseConfigurationReference = C5F1027ECA3D9F994CDE10E8 /* Pods-PhazeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -840,7 +836,7 @@
 		};
 		0AB724BD27849BD4005CA6A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6BC184DFD90776B1EE5A09B /* Pods-Phaze-PhazeUITests.debug.xcconfig */;
+			baseConfigurationReference = FBCF664AB66AA1452CD4AB9B /* Pods-Phaze-PhazeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -861,7 +857,7 @@
 		};
 		0AB724BE27849BD4005CA6A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8EF2BBA224DB7C16D2416BF /* Pods-Phaze-PhazeUITests.release.xcconfig */;
+			baseConfigurationReference = 85806195E1C6E203887502AA /* Pods-Phaze-PhazeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

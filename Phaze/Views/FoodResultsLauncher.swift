@@ -22,10 +22,16 @@ class FoodResults: NSObject{
 class FoodResultsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
         
     let blackview = UIView()
+    
+    // This section modifies the popup card.
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.white
+        cv.backgroundColor = UIColor.systemBlue
+        cv.layer.cornerRadius = 42
+        cv.layer.borderColor = UIColor.white.cgColor
+        cv.layer.borderWidth = 0.5
+        
         return cv
     }()
     
@@ -51,12 +57,20 @@ class FoodResultsLauncher: NSObject, UICollectionViewDataSource, UICollectionVie
     func displayResults(){
         
         if let window = UIApplication.shared.keyWindow {
+            
+            //After the photo is taken this sets the background colour.
             blackview.backgroundColor = UIColor(white: 0, alpha: 0.5)
             
+            //This closes the screen when an area of the screen is tapped.
             blackview.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
             
+            // This saves the image taken as the background.
             window.addSubview(imageView)
+            
+            // This darkens the taken image.
             window.addSubview(blackview)
+            
+            // This shows the pop-up menu with the information.
             window.addSubview(collectionView)
             
             let height: CGFloat = CGFloat(foodResults.count) * 100
@@ -110,6 +124,8 @@ class FoodResultsLauncher: NSObject, UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let foodResults = foodResults[indexPath.item]
+        
+        // If add button is clicked it will add the foods and move tho the next window.
         switch foodResults.name {
         case "Add Button":
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
