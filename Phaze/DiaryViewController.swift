@@ -11,6 +11,9 @@ import Charts
 
 class DiaryViewController: UIViewController, ChartViewDelegate {
     
+    @IBOutlet weak var dateLabel: UILabel!
+//    var dateLabel = UILabel()
+    
     var index: Int?
     var pieChart = PieChartView()
 
@@ -20,12 +23,34 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     }
     
     override func viewDidLayoutSubviews() {
+        getCurrentDate()
         setUpPieChart()
         animateChart()
     }
     
+    private func getCurrentDate(){
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year = dateFormatter.string(from: date)
+        
+        dateFormatter.dateFormat = "MMMM"
+        let month = dateFormatter.string(from: date)
+        
+        dateFormatter.dateFormat = "M"
+        let monthNum = dateFormatter.string(from: date)
+        
+        dateFormatter.dateFormat = "EEEE"
+        let day = dateFormatter.string(from: date)
+        
+        let currentDay = day + ", " + monthNum + " " + month + " " + year
+        dateLabel.text = currentDay
+        
+        print(dateLabel.frame.size.height)
+    }
+    
     private func setUpPieChart(){
-        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - dateLabel.frame.height, height: self.view.frame.height - dateLabel.frame.height)
         pieChart.center = view.center
         
         pieChart.usePercentValuesEnabled = false
@@ -86,6 +111,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         }
         
         let set = PieChartDataSet(entries: entries)
+        set.drawValuesEnabled = false
         
         var  colors: [UIColor] = []
         colors.append(hexStringToUIColor(hex: "#F86285"))
