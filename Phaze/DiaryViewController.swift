@@ -11,21 +11,37 @@ import Charts
 
 class DiaryViewController: UIViewController, ChartViewDelegate {
     
-    @IBOutlet weak var dateLabel: UILabel!
-//    var dateLabel = UILabel()
+    @IBOutlet weak var stackView: UIStackView!
     
     var index: Int?
     var pieChart = PieChartView()
+    
+    var label = UILabel()
+    let fontSize = 24
+    
+    var v = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         pieChart.delegate = self
-    }
-    
-    override func viewDidLayoutSubviews() {
+        
         getCurrentDate()
         setUpPieChart()
         animateChart()
+        
+        
+        setupStackView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        getCurrentDate()
+//        setUpPieChart()
+//        animateChart()
+        
+//        setupStackView()
+        
+//        setUpMealTableView()
     }
     
     private func getCurrentDate(){
@@ -44,14 +60,23 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let day = dateFormatter.string(from: date)
         
         let currentDay = day + ", " + monthNum + " " + month + " " + year
-        dateLabel.text = currentDay
         
-        print(dateLabel.frame.size.height)
+        label.text = currentDay
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: CGFloat(fontSize))
+        label.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        label.backgroundColor = .systemYellow
     }
     
     private func setUpPieChart(){
-        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - dateLabel.frame.height, height: self.view.frame.height - dateLabel.frame.height)
-        pieChart.center = view.center
+//        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+//        pieChart.center = view.center
+        
+//        pieChart.backgroundColor = .systemBlue
+        
+        pieChart.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        pieChart.heightAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         
         pieChart.usePercentValuesEnabled = false
         pieChart.drawEntryLabelsEnabled = false
@@ -64,7 +89,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         setUpChartText()
         setUpChartData()
         
-        view.addSubview(pieChart)
+//        view.addSubview(pieChart)
     }
     
     private func setUpChartText(){
@@ -150,5 +175,16 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
             alpha: CGFloat(1.0)
         )
     }
-
+    
+    private func setupStackView(){
+        v.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        v.heightAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(pieChart)
+        stackView.addArrangedSubview(v)
+//        stackView.backgroundColor = .systemRed
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 20
+    }
 }

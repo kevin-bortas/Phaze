@@ -149,26 +149,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 1 March 2022" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cei-mT-vrY">
-                                <rect key="frame" x="20" y="64" width="374" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="J1A-0C-rji"/>
-                                    <constraint firstAttribute="width" constant="374" id="Y89-QU-G3J"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kJl-Ds-ysj">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jJE-Yf-xBg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Cei-mT-vrY" firstAttribute="top" secondItem="jJE-Yf-xBg" secondAttribute="top" constant="20" id="3US-4K-dxi"/>
-                            <constraint firstItem="Cei-mT-vrY" firstAttribute="centerX" secondItem="8f8-MY-cqD" secondAttribute="centerX" id="5J4-3U-bIS"/>
+                            <constraint firstItem="kJl-Ds-ysj" firstAttribute="leading" secondItem="jJE-Yf-xBg" secondAttribute="leading" constant="20" id="jIZ-pd-9vo"/>
+                            <constraint firstItem="kJl-Ds-ysj" firstAttribute="top" secondItem="jJE-Yf-xBg" secondAttribute="top" constant="20" id="lZK-i0-rrj"/>
+                            <constraint firstItem="jJE-Yf-xBg" firstAttribute="bottom" secondItem="kJl-Ds-ysj" secondAttribute="bottom" constant="20" id="u6U-2d-x1P"/>
+                            <constraint firstItem="jJE-Yf-xBg" firstAttribute="trailing" secondItem="kJl-Ds-ysj" secondAttribute="trailing" constant="20" id="xOX-6N-s5p"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="Cei-mT-vrY" id="Ajc-RK-QbF"/>
+                        <outlet property="stackView" destination="kJl-Ds-ysj" id="rjS-WM-GBT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69e-mk-Sju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
