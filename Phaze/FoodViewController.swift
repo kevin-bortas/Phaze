@@ -45,7 +45,7 @@ class FoodViewController: UIViewController {
     
     func goToMealView(){
         guard let vc =
-            self.storyboard?.instantiateViewController(withIdentifier: "mealview") else {
+            self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
             return
         }
         self.navigationController?.pushViewController(vc, animated: false)
