@@ -12,6 +12,7 @@ import Charts
 class DiaryViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet var tableView: UITableView!
     
     var index: Int?
     var pieChart = PieChartView()
@@ -20,9 +21,30 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     let fontSize = 24
     
     var v = UIView()
+    
+//    var tv = UITableView()
+    var cell = CustomTableViewCell()
+    
+    let meals = [
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Snacks"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // Styling tableView
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+//        tableView.isScrollEnabled = false
+        
+//        tableView.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+//        tableView.heightAnchor.constraint(equalToConstant: view.frame.size.height).isActive = true
         
         pieChart.delegate = self
         
@@ -177,14 +199,42 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     }
     
     private func setupStackView(){
-        v.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
-        v.heightAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
-        
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(pieChart)
-        stackView.addArrangedSubview(v)
+//        stackView.addArrangedSubview(tableView)
 //        stackView.backgroundColor = .systemRed
         stackView.distribution = .equalSpacing
         stackView.spacing = 20
     }
+}
+
+extension DiaryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You tapped me!")
+    }
+}
+
+extension DiaryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meals.count
+
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        
+        let mealValue = meals[indexPath.row]
+
+        cell.mealLabel.text = mealValue
+        cell.mealImage.image = UIImage(named: mealValue)
+        
+        //Make cell look rounded.
+        cell.celllView.layer.cornerRadius = cell.celllView.frame.height / 2
+        
+        // Round images
+        cell.mealImage.layer.cornerRadius = cell.mealImage.frame.height / 2
+        
+        return cell
+    }
+
 }
