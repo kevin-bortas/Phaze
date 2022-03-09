@@ -20,7 +20,50 @@ class FoodResults: NSObject{
 }
 
 class FoodResultsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    actor Store {
+        var foodJson: [String:Any] = [:]
+        func append(response: [String:Any]) {
+            foodJson = response
+        }
+    }
+
+    func requestFood() {
         
+        let store = Store()
+        let edamam = Edamam()
+        
+        Task {
+            let response = try await edamam.get(query: ModelResultsHolder.modelResult!.label)
+            await store.append(response: response)
+//            print(await store.foodJson)
+        }
+    }
+    
+//    actor Store {
+//        var text: [String:Any] = [:]
+//        let edamam = Edamam()
+//        Task() {
+//            do {
+//                text = try await edamam.get(query: "donuts")
+//            } catch {
+//                print("Image loading failed: \(error)")
+//            }
+//        }
+//    }
+    
+//    var food: UIView = {
+//        var text: [String:Any]
+//        let edamam = Edamam()
+//        Task {
+//            do {
+//                text = try await edamam.get(query: "donuts")
+//            } catch {
+//                print("Image loading failed: \(error)")
+//            }
+//        }
+//    }()
+    
     let blackview = UIView()
     
     // This section modifies the popup card.
@@ -57,6 +100,8 @@ class FoodResultsLauncher: NSObject, UICollectionViewDataSource, UICollectionVie
     func displayResults(){
         
         if let window = UIApplication.shared.keyWindow {
+            
+            requestFood()
             
             //After the photo is taken this sets the background colour.
             blackview.backgroundColor = UIColor(white: 0, alpha: 0.5)

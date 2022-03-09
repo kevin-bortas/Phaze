@@ -152,7 +152,7 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         guard let data = photo.fileDataRepresentation() else {
             return
         }
-        let image = UIImage(data: data)
+        let image = UIImage(data: data)!
         
 //        session?.stopRunning()
         
@@ -161,15 +161,78 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         imageView.frame = view.bounds
         foodResultsLauncher.setImageView(image: imageView)
         
-        let pixelBuffer = buffer(from: image!)
+//        let scaledSize = CGSize(width: 224, height: 224)
+//        let rotatedImage = image!.rotate(radians: .pi/5)
+//        let croppedImage = cropImage(image: image!)
+//        let newImage = resizeImage(image: image, targetSize: scaledSize)
+//        print(newImage)
+        
+//        let imageView = UIImageView(image: newImage)
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.frame = view.bounds
+//        foodResultsLauncher.setImageView(image: imageView)
+        
+        
+        let pixelBuffer = buffer(from: image)
+        print(pixelBuffer)
+        
+//        let newImage = CreateCGImageFromCVPixelBuffer(pixelBuffer: pixelBuffer!)!
+//        let img = UIImage(cgImage: newImage)
+//        let imageView = UIImageView(image: img)
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.frame = view.bounds
+//        foodResultsLauncher.setImageView(image: imageView)
+        
         let result1: Result?
         result = modelDataHandler?.runModel(onFrame: pixelBuffer!)?.inferences[0]
         result1 = modelDataHandler?.runModel(onFrame: pixelBuffer!)
         print(result1)
         ModelResultsHolder.modelResult = result
-        
+        print(result)
+
         activateFoodResultsLauncher()
     }
+    
+    func cropImage(image: UIImage) -> UIImage {
+        let size = image.size
+
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height - (size.height / 4)) //    1536 x 2048 pixels
+
+        let cgImage = image.cgImage!
+
+        let croppedCGImage = cgImage.cropping(to: rect)
+        return UIImage(cgImage: croppedCGImage!)
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+       let size = image.size
+       
+//       let widthRatio  = targetSize.width  / size.width
+//       let heightRatio = targetSize.height / size.height
+//
+//        print(widthRatio)
+//        print(heightRatio)
+//
+//       // Figure out what our orientation is, and use that to form the rectangle
+       var newSize: CGSize
+//       if(widthRatio > heightRatio) {
+//           newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+//       } else {
+//           newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+//       }
+       newSize = CGSize(width: targetSize.width, height: targetSize.height)
+       
+       // This is the rect that we've calculated out and this is what is actually used below
+       let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+       
+       // Actually do the resizing to the rect using the ImageContext stuff
+       UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+       image.draw(in: rect)
+       let newImage = UIGraphicsGetImageFromCurrentImageContext()
+       UIGraphicsEndImageContext()
+       
+       return newImage!
+   }
     
     func buffer(from image: UIImage) -> CVPixelBuffer? {
       let attrs = [
@@ -214,4 +277,75 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
       return pixelBuffer
     }
     
+    func DegreesToRadians(_ degrees: CGFloat) -> CGFloat { return CGFloat( (degrees * .pi) / 180 ) }
+
+    func CreateCGImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> CGImage? {
+        let bitmapInfo: CGBitmapInfo
+        let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
+        if kCVPixelFormatType_32ARGB == sourcePixelFormat {
+            bitmapInfo = [.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
+        } else
+        if kCVPixelFormatType_32BGRA == sourcePixelFormat {
+            bitmapInfo = [.byteOrder32Little, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
+        } else {
+            return nil
+        }
+
+        // only uncompressed pixel formats
+        let sourceRowBytes = CVPixelBufferGetBytesPerRow(pixelBuffer)
+        let width = CVPixelBufferGetWidth(pixelBuffer)
+        let height = CVPixelBufferGetHeight(pixelBuffer)
+        print("Buffer image size \(width) height \(height)")
+
+        let val: CVReturn = CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+        if  val == kCVReturnSuccess,
+            let sourceBaseAddr = CVPixelBufferGetBaseAddress(pixelBuffer),
+            let provider = CGDataProvider(dataInfo: nil, data: sourceBaseAddr, size: sourceRowBytes * height, releaseData: {_,_,_ in })
+        {
+            let colorspace = CGColorSpaceCreateDeviceRGB()
+            let image = CGImage(width: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: sourceRowBytes,
+                            space: colorspace, bitmapInfo: bitmapInfo, provider: provider, decode: nil,
+                            shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
+            CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+            return image
+        } else {
+            return nil
+        }
+    }
+    // utility used by newSquareOverlayedImageForFeatures for
+    func CreateCGBitmapContextForSize(_ size: CGSize) -> CGContext? {
+        let bitmapBytesPerRow = Int(size.width * 4)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+
+        guard let context = CGContext(data: nil, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8,
+                        bytesPerRow: bitmapBytesPerRow, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        else { return nil }
+        context.setAllowsAntialiasing(false)
+        return context
+    }
+    
 }
+//
+//extension UIImage {
+//    func rotate(radians: Float) -> UIImage? {
+//        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
+//        // Trim off the extremely small float value to prevent core graphics from rounding it up
+//        newSize.width = floor(newSize.width)
+//        newSize.height = floor(newSize.height)
+//
+//        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+//        let context = UIGraphicsGetCurrentContext()!
+//
+//        // Move origin to middle
+//        context.translateBy(x: newSize.width/2, y: newSize.height/2)
+//        // Rotate around middle
+//        context.rotate(by: CGFloat(radians))
+//        // Draw the image at its center
+//        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+//
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return newImage
+//    }
+//}

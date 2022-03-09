@@ -14,12 +14,11 @@
 		0A19310027CEE6F8005C486C /* Lunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1930FF27CEE6F8005C486C /* Lunch.swift */; };
 		0A19310227CEE719005C486C /* Dinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A19310127CEE719005C486C /* Dinner.swift */; };
 		0A19310427CEE72A005C486C /* Snacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A19310327CEE72A005C486C /* Snacks.swift */; };
+		0A19310727D0F084005C486C /* Edamam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A19310627D0F084005C486C /* Edamam.swift */; };
 		0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAC27983E4C0021A41E /* CurvedView.swift */; };
 		0A7ECAAF27983E8F0021A41E /* InferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */; };
 		0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB1279841460021A41E /* InfoCell.swift */; };
 		0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */; };
-		0A85352F27AC155700E9C33A /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 0A85352D27AC155700E9C33A /* converted_model.tflite */; };
-		0A85353027AC155700E9C33A /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A85352E27AC155700E9C33A /* labels.txt */; };
 		0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */; };
 		0A97B01927A2E65E009C1586 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01827A2E65E009C1586 /* SwipingController.swift */; };
 		0A97B01B27A2E991009C1586 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01A27A2E991009C1586 /* SettingsViewController.swift */; };
@@ -27,6 +26,8 @@
 		0A97B02127A2F2DE009C1586 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02027A2F2DE009C1586 /* DataViewController.swift */; };
 		0A97B02327A2F9A2009C1586 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */; };
 		0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02427A30B11009C1586 /* DiaryViewController.swift */; };
+		0AA82A1027D62B4000721D3F /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 0AA82A0E27D62B4000721D3F /* converted_model.tflite */; };
+		0AA82A1127D62B4000721D3F /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0AA82A0F27D62B4000721D3F /* labels.txt */; };
 		0AB7249027849BD3005CA6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7248F27849BD3005CA6A4 /* AppDelegate.swift */; };
 		0AB7249227849BD3005CA6A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7249127849BD3005CA6A4 /* SceneDelegate.swift */; };
 		0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7249327849BD3005CA6A4 /* ViewController.swift */; };
@@ -85,13 +86,13 @@
 		0A1930FF27CEE6F8005C486C /* Lunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lunch.swift; sourceTree = "<group>"; };
 		0A19310127CEE719005C486C /* Dinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dinner.swift; sourceTree = "<group>"; };
 		0A19310327CEE72A005C486C /* Snacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snacks.swift; sourceTree = "<group>"; };
+		0A19310627D0F084005C486C /* Edamam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edamam.swift; sourceTree = "<group>"; };
 		0A4526D327A994BC00F47E79 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+		0A6F46A527D0F62200271C59 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7ECAAC27983E4C0021A41E /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceViewController.swift; sourceTree = "<group>"; };
 		0A7ECAB1279841460021A41E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBufferExtension.swift; sourceTree = "<group>"; };
-		0A85352D27AC155700E9C33A /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = converted_model.tflite; sourceTree = "<group>"; };
-		0A85352E27AC155700E9C33A /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActivityViewController.swift; sourceTree = "<group>"; };
 		0A97B01827A2E65E009C1586 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		0A97B01A27A2E991009C1586 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +100,8 @@
 		0A97B02027A2F2DE009C1586 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		0A97B02427A30B11009C1586 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		0AA82A0E27D62B4000721D3F /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = converted_model.tflite; sourceTree = "<group>"; };
+		0AA82A0F27D62B4000721D3F /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		0AB7248C27849BD3005CA6A4 /* Phaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB7248F27849BD3005CA6A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AB7249127849BD3005CA6A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 			children = (
 				0A1930FC27CEE576005C486C /* Meals */,
 				0A1930FA27CEDB15005C486C /* Food.swift */,
+				0A19310627D0F084005C486C /* Edamam.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -217,8 +221,8 @@
 		0A85353127AC155B00E9C33A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A85352D27AC155700E9C33A /* converted_model.tflite */,
-				0A85352E27AC155700E9C33A /* labels.txt */,
+				0AA82A0E27D62B4000721D3F /* converted_model.tflite */,
+				0AA82A0F27D62B4000721D3F /* labels.txt */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +310,7 @@
 		3D48642986F01C5776013A90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A6F46A527D0F62200271C59 /* SwiftyJSON.framework */,
 				0A4526D327A994BC00F47E79 /* Charts.xcodeproj */,
 				ECC5BE926D83EC31E4B5BFC1 /* Pods_Phaze.framework */,
 				A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */,
@@ -461,8 +466,8 @@
 			files = (
 				0AB7249C27849BD4005CA6A4 /* LaunchScreen.storyboard in Resources */,
 				0AB7249927849BD4005CA6A4 /* Assets.xcassets in Resources */,
-				0A85353027AC155700E9C33A /* labels.txt in Resources */,
-				0A85352F27AC155700E9C33A /* converted_model.tflite in Resources */,
+				0AA82A1127D62B4000721D3F /* labels.txt in Resources */,
+				0AA82A1027D62B4000721D3F /* converted_model.tflite in Resources */,
 				0AB7249727849BD3005CA6A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +604,7 @@
 				0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */,
 				0A1930FE27CEE581005C486C /* Breakfast.swift in Sources */,
 				0AD12065279DE053007609A5 /* FoodResultsLauncher.swift in Sources */,
+				0A19310727D0F084005C486C /* Edamam.swift in Sources */,
 				0AB7249027849BD3005CA6A4 /* AppDelegate.swift in Sources */,
 				0AD12068279DE5F8007609A5 /* ImageViewController.swift in Sources */,
 				0A97B01927A2E65E009C1586 /* SwipingController.swift in Sources */,
@@ -792,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7T6NF3247W;
+				DEVELOPMENT_TEAM = NH85SD292Y;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -811,7 +817,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7T6NF3247W;
+				DEVELOPMENT_TEAM = NH85SD292Y;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

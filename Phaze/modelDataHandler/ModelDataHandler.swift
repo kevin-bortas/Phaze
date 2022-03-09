@@ -45,7 +45,7 @@ class ModelDataHandler {
   let threadCountLimit = 10
 
   // MARK: - Model Parameters
-  let batchSize = 1
+  let batchSize = 4
   let inputChannels = 3
   let inputWidth = 224
   let inputHeight = 224
@@ -111,6 +111,8 @@ class ModelDataHandler {
       return nil
     }
 
+    print(thumbnailPixelBuffer)
+
     let interval: TimeInterval
     let outputTensor: Tensor
     do {
@@ -118,6 +120,7 @@ class ModelDataHandler {
 
       // Remove the alpha component from the image buffer to get the RGB data.
       guard let rgbData = rgbDataFromBuffer(
+//        pixelBuffer,
         thumbnailPixelBuffer,
         byteCount: batchSize * inputWidth * inputHeight * inputChannels,
         isModelQuantized: inputTensor.dataType == .uInt8

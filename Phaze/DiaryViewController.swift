@@ -21,6 +21,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     let fontSize = 24
     
     var v = UIView()
+    var edamam = Edamam()
     
 //    var tv = UITableView()
     var cell = CustomTableViewCell()
@@ -198,13 +199,16 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         )
     }
     
-    private func setupStackView(){
+    private func setupStackView() {
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(pieChart)
 //        stackView.addArrangedSubview(tableView)
 //        stackView.backgroundColor = .systemRed
         stackView.distribution = .equalSpacing
         stackView.spacing = 20
+        
+//        edamam.test()
+//         await edamam.get(query: "donut")
     }
 }
 

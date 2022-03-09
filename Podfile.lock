@@ -1,7 +1,9 @@
 PODS:
+  - Alamofire (5.5.0)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - SwiftyJSON (5.0.1)
   - TensorFlowLiteC (2.7.0):
     - TensorFlowLiteC/Core (= 2.7.0)
   - TensorFlowLiteC/Core (2.7.0)
@@ -11,20 +13,26 @@ PODS:
     - TensorFlowLiteC (= 2.7.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Charts
+  - SwiftyJSON
   - TensorFlowLiteSwift
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Charts
+    - SwiftyJSON
     - TensorFlowLiteC
     - TensorFlowLiteSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   TensorFlowLiteC: 50d75ed3640c15dcfbaf88ca4326297b445e00a1
   TensorFlowLiteSwift: fe99748dc3d58ae08bd2ff38658e3ade7038670f
 
-PODFILE CHECKSUM: 01248a7d949209ef49c29370d8bba69cf054972b
+PODFILE CHECKSUM: fd694093eed2289061373bc041ec6ed473bb144c
 
 COCOAPODS: 1.11.2
