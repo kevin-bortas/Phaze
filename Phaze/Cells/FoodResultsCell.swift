@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class BaseCell: UICollectionViewCell {
     override init(frame: CGRect){
@@ -23,7 +24,7 @@ class BaseCell: UICollectionViewCell {
     }
 }
 
-class FoodResultsCell: BaseCell {
+class FoodResultsCell: BaseCell, ChartViewDelegate {
     
     override var isHighlighted: Bool {
         didSet {

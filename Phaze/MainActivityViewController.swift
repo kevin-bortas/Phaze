@@ -173,8 +173,17 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
 //        foodResultsLauncher.setImageView(image: imageView)
         
         
-        let pixelBuffer = buffer(from: image)
-        print(pixelBuffer)
+//        let pixelBuffer = buffer(from: image)
+//        print(pixelBuffer)
+        
+        let inputImageSize: CGFloat = 224.0
+        let minLen = min(image.size.width, image.size.height)
+        let resizedImage = image.resize(to: CGSize(width: inputImageSize * image.size.width / minLen, height: inputImageSize * image.size.height / minLen))
+        let cropedToSquareImage = resizedImage.cropToSquare()
+
+        guard let pixelBuffer = cropedToSquareImage?.pixelBuffer() else {
+            fatalError()
+        }
         
 //        let newImage = CreateCGImageFromCVPixelBuffer(pixelBuffer: pixelBuffer!)!
 //        let img = UIImage(cgImage: newImage)
@@ -184,8 +193,8 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
 //        foodResultsLauncher.setImageView(image: imageView)
         
         let result1: Result?
-        result = modelDataHandler?.runModel(onFrame: pixelBuffer!)?.inferences[0]
-        result1 = modelDataHandler?.runModel(onFrame: pixelBuffer!)
+        result = modelDataHandler?.runModel(onFrame: pixelBuffer)?.inferences[0]
+        result1 = modelDataHandler?.runModel(onFrame: pixelBuffer)
         print(result1)
         ModelResultsHolder.modelResult = result
         print(result)
@@ -244,13 +253,17 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
       let status = CVPixelBufferCreate(kCFAllocatorDefault,
                                        Int(image.size.width),
                                        Int(image.size.height),
-                                       kCVPixelFormatType_32BGRA,
+                                       kCVPixelFormatType_32RGBA,
                                        attrs,
                                        &pixelBuffer)
+        
+//      let buffer = pixelBuffer
 
       guard let buffer = pixelBuffer, status == kCVReturnSuccess else {
         return nil
       }
+        
+      print("status", kCVReturnSuccess)
 
       CVPixelBufferLockBaseAddress(buffer, [])
       defer { CVPixelBufferUnlockBaseAddress(buffer, []) }
@@ -266,6 +279,8 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
                                     bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else {
         return nil
       }
+        
+        print("context")
 
       context.translateBy(x: 0, y: image.size.height)
       context.scaleBy(x: 1.0, y: -1.0)
@@ -277,75 +292,132 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
       return pixelBuffer
     }
     
-    func DegreesToRadians(_ degrees: CGFloat) -> CGFloat { return CGFloat( (degrees * .pi) / 180 ) }
-
-    func CreateCGImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> CGImage? {
-        let bitmapInfo: CGBitmapInfo
-        let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
-        if kCVPixelFormatType_32ARGB == sourcePixelFormat {
-            bitmapInfo = [.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
-        } else
-        if kCVPixelFormatType_32BGRA == sourcePixelFormat {
-            bitmapInfo = [.byteOrder32Little, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
-        } else {
-            return nil
-        }
-
-        // only uncompressed pixel formats
-        let sourceRowBytes = CVPixelBufferGetBytesPerRow(pixelBuffer)
-        let width = CVPixelBufferGetWidth(pixelBuffer)
-        let height = CVPixelBufferGetHeight(pixelBuffer)
-        print("Buffer image size \(width) height \(height)")
-
-        let val: CVReturn = CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        if  val == kCVReturnSuccess,
-            let sourceBaseAddr = CVPixelBufferGetBaseAddress(pixelBuffer),
-            let provider = CGDataProvider(dataInfo: nil, data: sourceBaseAddr, size: sourceRowBytes * height, releaseData: {_,_,_ in })
-        {
-            let colorspace = CGColorSpaceCreateDeviceRGB()
-            let image = CGImage(width: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: sourceRowBytes,
-                            space: colorspace, bitmapInfo: bitmapInfo, provider: provider, decode: nil,
-                            shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
-            CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-            return image
-        } else {
-            return nil
-        }
-    }
-    // utility used by newSquareOverlayedImageForFeatures for
-    func CreateCGBitmapContextForSize(_ size: CGSize) -> CGContext? {
-        let bitmapBytesPerRow = Int(size.width * 4)
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-
-        guard let context = CGContext(data: nil, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8,
-                        bytesPerRow: bitmapBytesPerRow, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
-        else { return nil }
-        context.setAllowsAntialiasing(false)
-        return context
-    }
+//    func DegreesToRadians(_ degrees: CGFloat) -> CGFloat { return CGFloat( (degrees * .pi) / 180 ) }
+//
+//    func CreateCGImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> CGImage? {
+//        let bitmapInfo: CGBitmapInfo
+//        let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
+//        if kCVPixelFormatType_32ARGB == sourcePixelFormat {
+//            bitmapInfo = [.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
+//        } else
+//        if kCVPixelFormatType_32BGRA == sourcePixelFormat {
+//            bitmapInfo = [.byteOrder32Little, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
+//        } else {
+//            return nil
+//        }
+//
+//        // only uncompressed pixel formats
+//        let sourceRowBytes = CVPixelBufferGetBytesPerRow(pixelBuffer)
+//        let width = CVPixelBufferGetWidth(pixelBuffer)
+//        let height = CVPixelBufferGetHeight(pixelBuffer)
+//        print("Buffer image size \(width) height \(height)")
+//
+//        let val: CVReturn = CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+//        if  val == kCVReturnSuccess,
+//            let sourceBaseAddr = CVPixelBufferGetBaseAddress(pixelBuffer),
+//            let provider = CGDataProvider(dataInfo: nil, data: sourceBaseAddr, size: sourceRowBytes * height, releaseData: {_,_,_ in })
+//        {
+//            let colorspace = CGColorSpaceCreateDeviceRGB()
+//            let image = CGImage(width: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: sourceRowBytes,
+//                            space: colorspace, bitmapInfo: bitmapInfo, provider: provider, decode: nil,
+//                            shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
+//            CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+//            return image
+//        } else {
+//            return nil
+//        }
+//    }
+//    // utility used by newSquareOverlayedImageForFeatures for
+//    func CreateCGBitmapContextForSize(_ size: CGSize) -> CGContext? {
+//        let bitmapBytesPerRow = Int(size.width * 4)
+//        let colorSpace = CGColorSpaceCreateDeviceRGB()
+//
+//        guard let context = CGContext(data: nil, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8,
+//                        bytesPerRow: bitmapBytesPerRow, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+//        else { return nil }
+//        context.setAllowsAntialiasing(false)
+//        return context
+//    }
     
 }
-//
-//extension UIImage {
-//    func rotate(radians: Float) -> UIImage? {
-//        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
-//        // Trim off the extremely small float value to prevent core graphics from rounding it up
-//        newSize.width = floor(newSize.width)
-//        newSize.height = floor(newSize.height)
-//
-//        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
-//        let context = UIGraphicsGetCurrentContext()!
-//
-//        // Move origin to middle
-//        context.translateBy(x: newSize.width/2, y: newSize.height/2)
-//        // Rotate around middle
-//        context.rotate(by: CGFloat(radians))
-//        // Draw the image at its center
-//        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
-//
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//
-//        return newImage
-//    }
-//}
+
+extension UIImage {
+
+    func resize(to newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newSize.width, height: newSize.height), true, 1.0)
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return resizedImage
+    }
+
+    func cropToSquare() -> UIImage? {
+        guard let cgImage = self.cgImage else {
+            return nil
+        }
+        var imageHeight = self.size.height
+        var imageWidth = self.size.width
+
+        if imageHeight > imageWidth {
+            imageHeight = imageWidth
+        }
+        else {
+            imageWidth = imageHeight
+        }
+
+        let size = CGSize(width: imageWidth, height: imageHeight)
+
+        let x = ((CGFloat(cgImage.width) - size.width) / 2).rounded()
+        let y = ((CGFloat(cgImage.height) - size.height) / 2).rounded()
+
+        let cropRect = CGRect(x: x, y: y, width: size.height, height: size.width)
+        if let croppedCgImage = cgImage.cropping(to: cropRect) {
+            return UIImage(cgImage: croppedCgImage, scale: 0, orientation: self.imageOrientation)
+        }
+
+        return nil
+    }
+
+    func pixelBuffer() -> CVPixelBuffer? {
+        let width = self.size.width
+        let height = self.size.height
+        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
+                     kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        var pixelBuffer: CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault,
+                                         Int(width),
+                                         Int(height),
+                                         kCVPixelFormatType_32ARGB,
+                                         attrs,
+                                         &pixelBuffer)
+
+        guard let resultPixelBuffer = pixelBuffer, status == kCVReturnSuccess else {
+            return nil
+        }
+
+        CVPixelBufferLockBaseAddress(resultPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(resultPixelBuffer)
+
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        guard let context = CGContext(data: pixelData,
+                                      width: Int(width),
+                                      height: Int(height),
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: CVPixelBufferGetBytesPerRow(resultPixelBuffer),
+                                      space: rgbColorSpace,
+                                      bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
+                                        return nil
+        }
+
+        context.translateBy(x: 0, y: height)
+        context.scaleBy(x: 1.0, y: -1.0)
+
+        UIGraphicsPushContext(context)
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        UIGraphicsPopContext()
+        CVPixelBufferUnlockBaseAddress(resultPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+
+        return resultPixelBuffer
+    }
+}
