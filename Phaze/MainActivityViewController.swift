@@ -110,19 +110,17 @@ class MainActivityViewController: UIViewController {
         }
     }
     
-    private func activateFoodResultsLauncher(){
+    private func activateFoodResultsLauncher(food: Food){
         foodResultsLauncher.mainActivity = self
-        foodResultsLauncher.displayResults()
+        foodResultsLauncher.displayResults(food: food)
     }
     
-    func goToFoodView(){
-        guard let vc =
-            self.storyboard?.instantiateViewController(withIdentifier: "foodview") else {
-            return
-        }
+    func goToFoodView(food: Food){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "foodview") as! FoodViewController
+        vc.food = food
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     private func reload(){
         view.layer.addSublayer(previewLayer)
         view.addSubview(shutterButton)
@@ -161,21 +159,6 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         imageView.frame = view.bounds
         foodResultsLauncher.setImageView(image: imageView)
         
-//        let scaledSize = CGSize(width: 224, height: 224)
-//        let rotatedImage = image!.rotate(radians: .pi/5)
-//        let croppedImage = cropImage(image: image!)
-//        let newImage = resizeImage(image: image, targetSize: scaledSize)
-//        print(newImage)
-        
-//        let imageView = UIImageView(image: newImage)
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.frame = view.bounds
-//        foodResultsLauncher.setImageView(image: imageView)
-        
-        
-//        let pixelBuffer = buffer(from: image)
-//        print(pixelBuffer)
-        
         let inputImageSize: CGFloat = 224.0
         let minLen = min(image.size.width, image.size.height)
         let resizedImage = image.resize(to: CGSize(width: inputImageSize * image.size.width / minLen, height: inputImageSize * image.size.height / minLen))
@@ -185,21 +168,12 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
             fatalError()
         }
         
-//        let newImage = CreateCGImageFromCVPixelBuffer(pixelBuffer: pixelBuffer!)!
-//        let img = UIImage(cgImage: newImage)
-//        let imageView = UIImageView(image: img)
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.frame = view.bounds
-//        foodResultsLauncher.setImageView(image: imageView)
-        
-        let result1: Result?
         result = modelDataHandler?.runModel(onFrame: pixelBuffer)?.inferences[0]
-        result1 = modelDataHandler?.runModel(onFrame: pixelBuffer)
-        print(result1)
         ModelResultsHolder.modelResult = result
-        print(result)
+        
+        requestFood()
 
-        activateFoodResultsLauncher()
+//        activateFoodResultsLauncher()
     }
     
     func cropImage(image: UIImage) -> UIImage {
@@ -213,132 +187,79 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         return UIImage(cgImage: croppedCGImage!)
     }
     
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-       let size = image.size
-       
-//       let widthRatio  = targetSize.width  / size.width
-//       let heightRatio = targetSize.height / size.height
-//
-//        print(widthRatio)
-//        print(heightRatio)
-//
-//       // Figure out what our orientation is, and use that to form the rectangle
-       var newSize: CGSize
-//       if(widthRatio > heightRatio) {
-//           newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-//       } else {
-//           newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
-//       }
-       newSize = CGSize(width: targetSize.width, height: targetSize.height)
-       
-       // This is the rect that we've calculated out and this is what is actually used below
-       let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-       
-       // Actually do the resizing to the rect using the ImageContext stuff
-       UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-       image.draw(in: rect)
-       let newImage = UIGraphicsGetImageFromCurrentImageContext()
-       UIGraphicsEndImageContext()
-       
-       return newImage!
-   }
-    
-    func buffer(from image: UIImage) -> CVPixelBuffer? {
-      let attrs = [
-        kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
-        kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue
-      ] as CFDictionary
-
-      var pixelBuffer: CVPixelBuffer?
-      let status = CVPixelBufferCreate(kCFAllocatorDefault,
-                                       Int(image.size.width),
-                                       Int(image.size.height),
-                                       kCVPixelFormatType_32RGBA,
-                                       attrs,
-                                       &pixelBuffer)
-        
-//      let buffer = pixelBuffer
-
-      guard let buffer = pixelBuffer, status == kCVReturnSuccess else {
-        return nil
-      }
-        
-      print("status", kCVReturnSuccess)
-
-      CVPixelBufferLockBaseAddress(buffer, [])
-      defer { CVPixelBufferUnlockBaseAddress(buffer, []) }
-      let pixelData = CVPixelBufferGetBaseAddress(buffer)
-
-      let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-      guard let context = CGContext(data: pixelData,
-                                    width: Int(image.size.width),
-                                    height: Int(image.size.height),
-                                    bitsPerComponent: 8,
-                                    bytesPerRow: CVPixelBufferGetBytesPerRow(buffer),
-                                    space: rgbColorSpace,
-                                    bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else {
-        return nil
-      }
-        
-        print("context")
-
-      context.translateBy(x: 0, y: image.size.height)
-      context.scaleBy(x: 1.0, y: -1.0)
-
-      UIGraphicsPushContext(context)
-      image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-      UIGraphicsPopContext()
-
-      return pixelBuffer
+    actor Store {
+        var foodJson: [String:AnyObject] = [:]
+        func append(response: [String:AnyObject]) {
+            foodJson = response
+        }
     }
-    
-//    func DegreesToRadians(_ degrees: CGFloat) -> CGFloat { return CGFloat( (degrees * .pi) / 180 ) }
-//
-//    func CreateCGImageFromCVPixelBuffer(pixelBuffer: CVPixelBuffer) -> CGImage? {
-//        let bitmapInfo: CGBitmapInfo
-//        let sourcePixelFormat = CVPixelBufferGetPixelFormatType(pixelBuffer)
-//        if kCVPixelFormatType_32ARGB == sourcePixelFormat {
-//            bitmapInfo = [.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
-//        } else
-//        if kCVPixelFormatType_32BGRA == sourcePixelFormat {
-//            bitmapInfo = [.byteOrder32Little, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipFirst.rawValue)]
-//        } else {
-//            return nil
-//        }
-//
-//        // only uncompressed pixel formats
-//        let sourceRowBytes = CVPixelBufferGetBytesPerRow(pixelBuffer)
-//        let width = CVPixelBufferGetWidth(pixelBuffer)
-//        let height = CVPixelBufferGetHeight(pixelBuffer)
-//        print("Buffer image size \(width) height \(height)")
-//
-//        let val: CVReturn = CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-//        if  val == kCVReturnSuccess,
-//            let sourceBaseAddr = CVPixelBufferGetBaseAddress(pixelBuffer),
-//            let provider = CGDataProvider(dataInfo: nil, data: sourceBaseAddr, size: sourceRowBytes * height, releaseData: {_,_,_ in })
-//        {
-//            let colorspace = CGColorSpaceCreateDeviceRGB()
-//            let image = CGImage(width: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: sourceRowBytes,
-//                            space: colorspace, bitmapInfo: bitmapInfo, provider: provider, decode: nil,
-//                            shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
-//            CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-//            return image
-//        } else {
-//            return nil
-//        }
-//    }
-//    // utility used by newSquareOverlayedImageForFeatures for
-//    func CreateCGBitmapContextForSize(_ size: CGSize) -> CGContext? {
-//        let bitmapBytesPerRow = Int(size.width * 4)
-//        let colorSpace = CGColorSpaceCreateDeviceRGB()
-//
-//        guard let context = CGContext(data: nil, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8,
-//                        bytesPerRow: bitmapBytesPerRow, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
-//        else { return nil }
-//        context.setAllowsAntialiasing(false)
-//        return context
-//    }
-    
+
+    func requestFood() {
+        
+        let store = Store()
+        let edamam = Edamam()
+        
+        let task = Task {
+            let response = await edamam.get(query: ModelResultsHolder.modelResult!.label)
+            await store.append(response: response)
+            
+            let food_array = await store.foodJson
+            let hints = food_array["hints"]
+            let s = String(describing: hints!)
+            let split_string = s.split(whereSeparator: \.isWhitespace)
+            
+            var name: String = ""
+            var cals: Double = 0.0
+            var protein: Double = 0.0
+            var fat: Double = 0.0
+            var carbs: Double = 0.0
+            
+            var position = 0;
+            var setFinishFlag = false
+            for char in split_string {
+                let newChar = char.replacingOccurrences(of: "\"", with: "")
+                switch(newChar){
+                case "label":
+                    var tmp_position = position + 2;
+                    while (true){
+                        if (split_string[tmp_position].contains(";")){
+                            let newString = split_string[tmp_position].dropLast()
+                            name += newString
+                            break
+                        }
+                        else {
+                            name += split_string[tmp_position] + " "
+                        }
+                        tmp_position += 1;
+                    }
+                case "ENERC_KCAL":
+                    let myString = split_string[position + 2].dropLast().replacingOccurrences(of: "\"", with: "")
+                    cals = (myString as NSString).doubleValue
+                case "PROCNT":
+                    let myString = split_string[position + 2].dropLast().replacingOccurrences(of: "\"", with: "")
+                    protein = (myString as NSString).doubleValue
+                case "FAT":
+                    let myString = split_string[position + 2].dropLast().replacingOccurrences(of: "\"", with: "")
+                    fat = (myString as NSString).doubleValue
+                case "CHOCDF":
+                    let myString = split_string[position + 2].dropLast().replacingOccurrences(of: "\"", with: "")
+                    carbs = (myString as NSString).doubleValue
+                default:
+                    if (name != "" && cals != 0.0 && protein != 0.0 && fat != 0.0 && carbs != 0.0){
+                        setFinishFlag = true
+                        break
+                    }
+                }
+                if (setFinishFlag == true){
+                    break
+                }
+                position += 1
+            }
+            
+            let food = Food(n: name.capitalized, measure: "", c: cals, p: protein, cb: carbs, f: fat)
+            activateFoodResultsLauncher(food: food)
+        }
+    }
 }
 
 extension UIImage {

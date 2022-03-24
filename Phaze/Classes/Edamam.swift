@@ -20,7 +20,7 @@ class Edamam {
         self.food_appkey = "fee3c57a8a37a553efef8356f775f5c3"
     }
     
-    func get(query: String) async -> [String:Any] {
+    func get(query: String) async -> [String:AnyObject] {
         let splitQuery = query.lowercased().split(separator: " ")
         var constructedQuery: String
         if (splitQuery.count > 1){
@@ -34,9 +34,9 @@ class Edamam {
         
         let url = URL(string: requestString)!
         
-        let food = Task { () -> [String:Any] in
+        let food = Task { () -> [String:AnyObject] in
             
-            var food: [String:Any] = [:]
+            var food: [String:AnyObject] = [:]
             do {
                 if #available(iOS 15.0, *) {
                     food = try await performRequest(url: url)
@@ -56,11 +56,11 @@ class Edamam {
     }
 
     @available(iOS 15.0, *)
-    private func performRequest(url: URL) async throws -> [String:Any] {
+    private func performRequest(url: URL) async throws -> [String:AnyObject] {
 
         let (data, _) = try await URLSession.shared.data(from: url)
 
-        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
         return json
     }
 }

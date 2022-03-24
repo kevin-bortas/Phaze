@@ -22,25 +22,6 @@ class FoodResults: NSObject{
 
 class FoodResultsLauncher: NSObject, ChartViewDelegate {
     
-    actor Store {
-        var foodJson: [String:Any] = [:]
-        func append(response: [String:Any]) {
-            foodJson = response
-        }
-    }
-
-    func requestFood() {
-        
-        let store = Store()
-        let edamam = Edamam()
-        
-        Task {
-            let response = try await edamam.get(query: ModelResultsHolder.modelResult!.label)
-            await store.append(response: response)
-//            print(await store.foodJson)
-        }
-    }
-    
     let blackview = UIView()
     
     // This section modifies the popup card.
@@ -205,28 +186,13 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         return label
     }()
     
-    let foodViewController = FoodViewController()
-    let cellId = "cellId"
+//    let foodViewController = FoodViewController()
     
-//    var collectionViewHolder = UIView()
     var pieChart = PieChartView()
-//
-    var foodResults: [FoodResults] = {
-        return [FoodResults(name: "FoodResults", imageName: "Name"),
-                FoodResults(name: "Pie Chart", imageName: "Name"),
-                FoodResults(name: "Calorie Info", imageName: "Name"),
-                FoodResults(name: "Add Button", imageName: "Name")]
-    }()
-    
-//    let pieChartView: UIView = {
-//        let view = UIView()
-//        var pieChart = PieChartView()
-//
-//    }()
-    
-//    let stackView = UIStackView()
     
     var mainActivity: MainActivityViewController?
+    
+    var globalFood: Food?
     
     var imageView = UIImageView()
     
@@ -234,11 +200,11 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         self.imageView = image
     }
     
-    func displayResults(){
+    func displayResults(food: Food){
+        
+        globalFood = food
         
         if let window = UIApplication.shared.keyWindow {
-            
-            requestFood()
             
             //After the photo is taken this sets the background colour.
             blackview.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -265,7 +231,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
             informationLegend.heightAnchor.constraint(equalToConstant: window.frame.width).isActive = true
             informationLegend.widthAnchor.constraint(equalToConstant: window.frame.width).isActive = true
             
-            setUpPieChart(width: window.frame.width / 2)
+            setUpPieChart(width: window.frame.width / 2, food: food)
             
             setupStackView()
             
@@ -341,7 +307,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         stackView.isUserInteractionEnabled = true
     }
 
-    private func setUpPieChart(width: CGFloat){
+    private func setUpPieChart(width: CGFloat, food: Food){
         pieChart.widthAnchor.constraint(equalToConstant: width).isActive = true
         pieChart.heightAnchor.constraint(equalToConstant: width).isActive = true
 
@@ -354,17 +320,17 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         pieChart.isUserInteractionEnabled = false
         pieChart.holeRadiusPercent = 0.8
 
-        setUpChartText()
-        setUpChartData()
+        setUpChartText(food: food)
+        setUpChartData(food: food)
     }
 
-    private func setUpChartText(){
+    private func setUpChartText(food: Food){
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
 
         let centerText = NSMutableAttributedString()
 
-        let stringOne = "100"
+        let stringOne = String(food.getCaloriesInt())
         let stringTwo = "cals"
 //        let stringThree = "of 2000"
         let attributes = [ NSAttributedString.Key.paragraphStyle: style,
@@ -384,14 +350,19 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         pieChart.centerAttributedText = centerText
     }
 
-    private func setUpChartData(){
+    private func setUpChartData(food: Food){
         var entries = [ChartDataEntry]()
 
-        var protein = Double(10)
-        var carbs = Double(50)
-        var fat = Double(20)
+        let protein = food.getProtein()
+        proteinValue.text = String(round(10 * protein) / 10) + "g"
+        
+        let carbs = food.getCarbs()
+        carbValue.text = String(round(10 * carbs) / 10) + "g"
+        
+        let fat = food.getFat()
+        fatValue.text = String(round(10 * fat) / 10) + "g"
 
-        var nutritionalInfo = [["Protein", protein], ["Carbohydrates", carbs], ["Fat", fat]]
+        let nutritionalInfo = [["Protein", protein], ["Carbohydrates", carbs], ["Fat", fat]]
 
         for x in 0..<3{
             entries.append(ChartDataEntry(x: nutritionalInfo[x][1] as! Double,
@@ -443,7 +414,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
                 self.imageView.image = nil
             }
         }) { (completion: Bool) in
-            self.mainActivity?.goToFoodView()
+            self.mainActivity?.goToFoodView(food: self.globalFood!)
         }
     }
     

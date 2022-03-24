@@ -52,7 +52,9 @@ class Food {
         self.carbs = cb
         self.carbsO = cb
 
-        currentServingSize = measure
+        if (measure != ""){
+            currentServingSize = measure
+        }
 
         foodInfo.append(name)
         foodInfo.append("" + String(calories))

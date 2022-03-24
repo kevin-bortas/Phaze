@@ -111,8 +111,6 @@ class ModelDataHandler {
       return nil
     }
 
-    print(thumbnailPixelBuffer)
-
     let interval: TimeInterval
     let outputTensor: Tensor
     do {
@@ -120,7 +118,6 @@ class ModelDataHandler {
 
       // Remove the alpha component from the image buffer to get the RGB data.
       guard let rgbData = rgbDataFromBuffer(
-//        pixelBuffer,
         thumbnailPixelBuffer,
         byteCount: batchSize * inputWidth * inputHeight * inputChannels,
         isModelQuantized: inputTensor.dataType == .uInt8
@@ -128,8 +125,6 @@ class ModelDataHandler {
         print("Failed to convert the image buffer to RGB data.")
         return nil
       }
-        
-      print("rgb data", rgbData)
 
       // Copy the RGB data to the input `Tensor`.
       try interpreter.copy(rgbData, toInputAt: 0)
@@ -145,8 +140,6 @@ class ModelDataHandler {
       print("Failed to invoke the interpreter with error: \(error.localizedDescription)")
       return nil
     }
-    
-    print("output Tensor ", outputTensor.dataType)
 
     let results: [Float]
     switch outputTensor.dataType {
@@ -165,8 +158,6 @@ class ModelDataHandler {
       print("Output tensor data type \(outputTensor.dataType) is unsupported for this example app.")
       return nil
     }
-      
-    print("results", results)
 
     // Process the results.
     let topNInferences = getTopN(results: results)

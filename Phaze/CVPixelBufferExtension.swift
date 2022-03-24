@@ -109,11 +109,8 @@ extension CVPixelBuffer {
     CVPixelBufferLockBaseAddress(buffer, [])
     defer { CVPixelBufferUnlockBaseAddress(buffer, []) }
     let pixelData = CVPixelBufferGetBaseAddress(buffer)
-      
-    print("pixel data", pixelData)
 
     let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-    print("rgb color space", rgbColorSpace)
     guard let context = CGContext(data: pixelData,
                                   width: Int(image.size.width),
                                   height: Int(image.size.height),

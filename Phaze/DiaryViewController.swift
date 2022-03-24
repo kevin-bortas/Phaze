@@ -510,7 +510,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         stackView.addArrangedSubview(snacksStackView)
         stackView.addArrangedSubview(breaker4)
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .equalSpacing
         stackView.spacing = 0
         
         scrollView.addSubview(stackView)
