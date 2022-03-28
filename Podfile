@@ -8,8 +8,6 @@ target 'Phaze' do
   # Pods for Phaze
   pod 'TensorFlowLiteSwift'
   pod 'Charts'
-  pod 'SwiftyJSON'
-  pod 'Alamofire'
 
   target 'PhazeTests' do
     inherit! :search_paths

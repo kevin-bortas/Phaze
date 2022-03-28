@@ -365,6 +365,7 @@ class FoodViewController: UIViewController {
             Snacks.addMeal(food: food!)
         }
         
+        User.update()
         goToMainActivity()
     }
     

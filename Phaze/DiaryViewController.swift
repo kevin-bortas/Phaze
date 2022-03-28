@@ -60,7 +60,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: CGFloat(fontSize))
-        label.text = "0.0g"
+        label.text = String(User.getTotalCarbs()) + "g"
         return label
     }()
     let carbView: UIView = {
@@ -72,8 +72,6 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     let carbStackView: UIStackView = {
         let sv = UIStackView()
         sv.backgroundColor = UIColor.white
-//        sv.isLayoutMarginsRelativeArrangement = true
-//        sv.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         return sv
     }()
     
@@ -82,7 +80,6 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: CGFloat(fontSize))
-//        label.heightAnchor.constraint(equalToConstant: 100).isActive = true
         label.text = "Protein"
         label.textColor = UIColor.gray
         return label
@@ -92,8 +89,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: CGFloat(fontSize))
-//        label.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        label.text = "0.0g"
+        label.text = String(User.getTotalProtein()) + "g"
         return label
     }()
     let proteinView: UIView = {
@@ -104,8 +100,6 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     let proteinStackView: UIStackView = {
         let sv = UIStackView()
         sv.backgroundColor = UIColor.white
-//        sv.isLayoutMarginsRelativeArrangement = true
-//        sv.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         return sv
     }()
     
@@ -114,7 +108,6 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: CGFloat(fontSize))
-//        label.heightAnchor.constraint(equalToConstant: 100).isActive = true
         label.text = "Fat"
         label.textColor = UIColor.gray
         return label
@@ -124,8 +117,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: CGFloat(fontSize))
-//        label.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        label.text = "0.0g"
+        label.text = String(User.getTotalFat()) + "g"
         return label
     }()
     let fatView: UIView = {
@@ -277,7 +269,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         let centerText = NSMutableAttributedString()
         
         let stringOne = "Total calories\n"
-        let stringTwo = "0\n"
+        let stringTwo = String(User.getCaloriesEaten()) + "\n"
         let stringThree = "of 2000"
         let attributes = [ NSAttributedString.Key.paragraphStyle: style,
                            NSAttributedString.Key.foregroundColor: UIColor.gray,
@@ -301,13 +293,16 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     private func setUpChartData(){
         var entries = [ChartDataEntry]()
         
-        var protein = Double(10)
-        var carbs = Double(50)
-        var fat = Double(20)
+        var nutritionalInfo = [["Protein", User.getTotalProtein()], ["Carbohydrates", User.getTotalCarbs()], ["Fat", User.getTotalFat()]]
         
-        var nutritionalInfo = [["Protein", protein], ["Carbohydrates", carbs], ["Fat", fat]]
+        if (User.getCaloriesEaten() == 0){
+            nutritionalInfo.append(["empty", 1.0])
+        }
         
-        for x in 0..<3{
+        print(nutritionalInfo)
+        
+        
+        for x in 0..<nutritionalInfo.count{
             entries.append(ChartDataEntry(x: nutritionalInfo[x][1] as! Double,
                                           y: nutritionalInfo[x][1] as! Double,
                                           data: nutritionalInfo[x][0]))
@@ -320,6 +315,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         colors.append(hexStringToUIColor(hex: "#F86285"))
         colors.append(hexStringToUIColor(hex: "#FFE570"))
         colors.append(hexStringToUIColor(hex: "#71D6CA"))
+        colors.append(hexStringToUIColor(hex: "#F4F5F6"))
         set.colors = colors
         
         let data = PieChartData(dataSet: set)
