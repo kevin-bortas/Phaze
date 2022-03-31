@@ -7,6 +7,7 @@
 //
 import AVFoundation
 import UIKit
+import MLKit
 
 class MainActivityViewController: UIViewController {
 
@@ -171,9 +172,28 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         result = modelDataHandler?.runModel(onFrame: pixelBuffer)?.inferences[0]
         ModelResultsHolder.modelResult = result
         
-        requestFood()
-
-//        activateFoodResultsLauncher()
+        barcodeScanner(image: image, prediction: "ingr=" + result!.label)
+    }
+    
+    func barcodeScanner(image: UIImage, prediction: String) {
+        let barcodeOptions = BarcodeScannerOptions(formats: .all)
+        
+        let visionImage = VisionImage(image: image)
+        visionImage.orientation = image.imageOrientation
+        
+        let barcodeScanner = BarcodeScanner.barcodeScanner()
+        
+        barcodeScanner.process(visionImage) { features, error in
+            guard error == nil, let features = features, !features.isEmpty else {
+              // Error handling
+              self.requestFood(food: prediction)
+              return
+            }
+            // Recognized barcodes
+            for barcode in features{
+                self.requestFood(food: "upc=" + barcode.displayValue!)
+            }
+        }
     }
     
     func cropImage(image: UIImage) -> UIImage {
@@ -194,13 +214,13 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         }
     }
 
-    func requestFood() {
+    func requestFood(food: String) {
         
         let store = Store()
         let edamam = Edamam()
         
         let task = Task {
-            let response = await edamam.get(query: ModelResultsHolder.modelResult!.label)
+            let response = await edamam.get(query: food)
             await store.append(response: response)
             
             let food_array = await store.foodJson
@@ -216,15 +236,17 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
             
             var position = 0;
             var setFinishFlag = false
+            var labelFlag = false
             for char in split_string {
                 let newChar = char.replacingOccurrences(of: "\"", with: "")
                 switch(newChar){
                 case "label":
                     var tmp_position = position + 2;
-                    while (true){
+                    while (!labelFlag){
                         if (split_string[tmp_position].contains(";")){
                             let newString = split_string[tmp_position].dropLast()
                             name += newString
+                            labelFlag = true
                             break
                         }
                         else {
@@ -255,6 +277,8 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
                 }
                 position += 1
             }
+            
+            print(name)
             
             let food = Food(n: name.capitalized, measure: "", c: cals, p: protein, cb: carbs, f: fat)
             activateFoodResultsLauncher(food: food)

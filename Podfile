@@ -8,6 +8,7 @@ target 'Phaze' do
   # Pods for Phaze
   pod 'TensorFlowLiteSwift'
   pod 'Charts'
+  pod 'GoogleMLKit/BarcodeScanning'
 
   target 'PhazeTests' do
     inherit! :search_paths

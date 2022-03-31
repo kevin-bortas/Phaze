@@ -67,6 +67,16 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         return sv
     }()
     
+    let addFoodView: UIStackView = {
+        let sv = UIStackView(frame: .zero)
+        sv.backgroundColor = UIColor.white
+        sv.layer.borderColor = UIColor.white.cgColor
+        sv.layer.borderWidth = 0.5
+        sv.isLayoutMarginsRelativeArrangement = true
+        sv.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60)
+        return sv
+    }()
+
     let carbLabel: UILabel = {
         let fontSize = 15
         let label = PaddingLabel()
@@ -179,14 +189,26 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         let label = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         label.textAlignment = .center
         label.font = .systemFont(ofSize: CGFloat(fontSize))
+        label.textColor = UIColor.white
         label.heightAnchor.constraint(equalToConstant: 50).isActive = true
         label.text = "Add food"
         label.isUserInteractionEnabled = true
         label.backgroundColor = UIColor.systemBlue
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.highlightedTextColor = UIColor.gray
         return label
     }()
     
-//    let foodViewController = FoodViewController()
+    let breaker: UIView = {
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
+        return v
+    }()
+    
+    let breaker2: UIView = {
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
+        return v
+    }()
     
     var pieChart = PieChartView()
     
@@ -225,7 +247,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
             let y = window.frame.height - height
             stackView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
             
-            foodLabel.text = ModelResultsHolder.modelResult!.label
+            foodLabel.text = food.name
             foodLabel.widthAnchor.constraint(equalToConstant: window.frame.width).isActive = true
             
             informationLegend.heightAnchor.constraint(equalToConstant: window.frame.width).isActive = true
@@ -298,9 +320,24 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         nutritionalInformationView.distribution = .equalSpacing
         nutritionalInformationView.spacing = 5
         
+        addFoodView.addArrangedSubview(addFood)
+        addFoodView.axis = .vertical
+        addFoodView.distribution = .fillEqually
+        addFoodView.spacing = 5
+        
+        breaker.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
+        breaker.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        breaker.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
+        
+        breaker2.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
+        breaker2.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        breaker2.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
+        
         stackView.addArrangedSubview(foodLabel)
+        stackView.addArrangedSubview(breaker)
         stackView.addArrangedSubview(nutritionalInformationView)
-        stackView.addArrangedSubview(addFood)
+        stackView.addArrangedSubview(breaker2)
+        stackView.addArrangedSubview(addFoodView)
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.spacing = 5

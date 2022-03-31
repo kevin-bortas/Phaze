@@ -194,7 +194,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         stackView.backgroundColor = UIColor.white
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-//        view.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+//        view.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         getCurrentDate()
         setUpPieChart()
@@ -299,9 +299,6 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
             nutritionalInfo.append(["empty", 1.0])
         }
         
-        print(nutritionalInfo)
-        
-        
         for x in 0..<nutritionalInfo.count{
             entries.append(ChartDataEntry(x: nutritionalInfo[x][1] as! Double,
                                           y: nutritionalInfo[x][1] as! Double,
@@ -312,42 +309,18 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         set.drawValuesEnabled = false
         
         var  colors: [UIColor] = []
-        colors.append(hexStringToUIColor(hex: "#F86285"))
-        colors.append(hexStringToUIColor(hex: "#FFE570"))
-        colors.append(hexStringToUIColor(hex: "#71D6CA"))
-        colors.append(hexStringToUIColor(hex: "#F4F5F6"))
+        colors.append(Helper.hexStringToUIColor(hex: "#F86285"))
+        colors.append(Helper.hexStringToUIColor(hex: "#FFE570"))
+        colors.append(Helper.hexStringToUIColor(hex: "#71D6CA"))
+        colors.append(Helper.hexStringToUIColor(hex: "#F4F5F6"))
         set.colors = colors
         
         let data = PieChartData(dataSet: set)
         pieChart.data = data
-        
-        
     }
     
     private func animateChart(){
         pieChart.animate(xAxisDuration: 0.6, yAxisDuration: 0.6)
-    }
-    
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
     
     private func setupStackView() {
@@ -364,7 +337,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         
         breaker.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker2: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -372,7 +345,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         }()
         breaker2.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker2.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker2.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker2.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker3: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -380,7 +353,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         }()
         breaker3.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker3.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker3.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker3.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker4: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -388,7 +361,15 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         }()
         breaker4.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker4.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker4.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker4.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
+        
+        let breaker5: UIView = {
+            let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
+            return v
+        }()
+        breaker5.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
+        breaker5.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        breaker5.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         informationLegend.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         informationLegend.heightAnchor.constraint(equalToConstant: 110).isActive = true
@@ -421,11 +402,11 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         snacksStackView.isUserInteractionEnabled = true
         snacksStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(snacksTapFunction)))
         
-        proteinView.backgroundColor = hexStringToUIColor(hex: "#F86285")
-        carbView.backgroundColor = hexStringToUIColor(hex: "#FFE570")
-        fatView.backgroundColor = hexStringToUIColor(hex: "#71D6CA")
+        proteinView.backgroundColor = Helper.hexStringToUIColor(hex: "#F86285")
+        carbView.backgroundColor = Helper.hexStringToUIColor(hex: "#FFE570")
+        fatView.backgroundColor = Helper.hexStringToUIColor(hex: "#71D6CA")
         
-        mealLabel.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        mealLabel.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         proteinStackView.addArrangedSubview(proteinLabel)
         proteinStackView.addArrangedSubview(proteinValue)
@@ -458,6 +439,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         informationLegend.isLayoutMarginsRelativeArrangement = true
         
         stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(breaker5)
         stackView.addArrangedSubview(pieChart)
         stackView.addArrangedSubview(informationLegend)
         stackView.addArrangedSubview(mealLabel)
@@ -570,7 +552,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     
     @objc func breakfastTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
-            breakfastStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+            breakfastStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         } else if gesture.state == .ended || gesture.state == .cancelled {
             breakfastStackView.backgroundColor = .white
         }
@@ -578,7 +560,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     
     @objc func lunchTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
-            lunchStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+            lunchStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         } else if gesture.state == .ended || gesture.state == .cancelled {
             lunchStackView.backgroundColor = .white
         }
@@ -586,14 +568,14 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     
     @objc func dinnerTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
-            dinnerStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+            dinnerStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         } else if gesture.state == .ended || gesture.state == .cancelled {
             dinnerStackView.backgroundColor = .white
         }
     }
     
     @objc func snacksTapFunction(gesture: UITapGestureRecognizer) {
-        snacksStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        snacksStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         if gesture.state == .ended || gesture.state == .cancelled {
             snacksStackView.backgroundColor = .white
         }

@@ -28,7 +28,7 @@ class Edamam {
             constructedQuery = splitQuery.joined(separator: "")
         }
         
-        let requestString = "https://api.edamam.com/api/food-database/v2/parser?app_id=f635a9ab&app_key=fee3c57a8a37a553efef8356f775f5c3&nutrition-type=cooking&ingr=" + constructedQuery
+        let requestString = "https://api.edamam.com/api/food-database/v2/parser?app_id=f635a9ab&app_key=fee3c57a8a37a553efef8356f775f5c3&nutrition-type=cooking&" + constructedQuery
         
         let url = URL(string: requestString)!
         

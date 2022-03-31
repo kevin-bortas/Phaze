@@ -37,6 +37,7 @@
 		0AB7249C27849BD4005CA6A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB7249A27849BD4005CA6A4 /* LaunchScreen.storyboard */; };
 		0AB724A727849BD4005CA6A4 /* PhazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB724A627849BD4005CA6A4 /* PhazeTests.swift */; };
 		0AB724B227849BD4005CA6A4 /* PhazeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB724B127849BD4005CA6A4 /* PhazeUITests.swift */; };
+		0ACAD2DE27F6086500BA2D3E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACAD2DD27F6086500BA2D3E /* Helper.swift */; };
 		0AD12063279DDF04007609A5 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12062279DDF04007609A5 /* MealViewController.swift */; };
 		0AD12065279DE053007609A5 /* FoodResultsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12064279DE053007609A5 /* FoodResultsLauncher.swift */; };
 		0AD12068279DE5F8007609A5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12067279DE5F8007609A5 /* ImageViewController.swift */; };
@@ -119,6 +120,7 @@
 		0AB724AD27849BD4005CA6A4 /* PhazeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhazeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB724B127849BD4005CA6A4 /* PhazeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhazeUITests.swift; sourceTree = "<group>"; };
 		0AB724B327849BD4005CA6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ACAD2DD27F6086500BA2D3E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0AD12062279DDF04007609A5 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		0AD12064279DE053007609A5 /* FoodResultsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResultsLauncher.swift; sourceTree = "<group>"; };
 		0AD12067279DE5F8007609A5 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				0A1930FA27CEDB15005C486C /* Food.swift */,
 				0A19310627D0F084005C486C /* Edamam.swift */,
 				0AE0AF7E27F1D3630039D097 /* User.swift */,
+				0ACAD2DD27F6086500BA2D3E /* Helper.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				0AD12068279DE5F8007609A5 /* ImageViewController.swift in Sources */,
 				0A97B01927A2E65E009C1586 /* SwipingController.swift in Sources */,
 				0A97B02327A2F9A2009C1586 /* CustomPageViewController.swift in Sources */,
+				0ACAD2DE27F6086500BA2D3E /* Helper.swift in Sources */,
 				0A97B01F27A2EBE4009C1586 /* MainActivityDisplayController.swift in Sources */,
 				0A19310227CEE719005C486C /* Dinner.swift in Sources */,
 				0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */,
