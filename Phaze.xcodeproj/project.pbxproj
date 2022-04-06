@@ -47,6 +47,7 @@
 		0AEB907227FE366600E2ABDD /* AccountSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */; };
 		0CB92BE8CB3628827F45223A /* Pods_Phaze_PhazeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */; };
 		1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */; };
+		1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */; };
 		3DEBDA46BADFD2CCCD132627 /* Pods_Phaze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC5BE926D83EC31E4B5BFC1 /* Pods_Phaze.framework */; };
 		8EBDAE78F2A986475993F8C3 /* Pods_PhazeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,7 @@
 		0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetUpViewController.swift; sourceTree = "<group>"; };
 		16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhazeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingTableViewCell.swift; sourceTree = "<group>"; };
 		4A3207AAE63353C6F7EEFCC9 /* Pods-Phaze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze.debug.xcconfig"; path = "Target Support Files/Pods-Phaze/Pods-Phaze.debug.xcconfig"; sourceTree = "<group>"; };
 		75565EFF55C436A2943A2FE7 /* Pods-PhazeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.debug.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85806195E1C6E203887502AA /* Pods-Phaze-PhazeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze-PhazeUITests.release.xcconfig"; path = "Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */,
 				0A97B02427A30B11009C1586 /* DiaryViewController.swift */,
 				0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */,
+				1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */,
 			);
 			path = Phaze;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */,
 				0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */,
 				1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */,
+				1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */,
 				0A0038A727983363004608D0 /* ModelDataHandler.swift in Sources */,
 				0A19310027CEE6F8005C486C /* Lunch.swift in Sources */,
 				0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */,
