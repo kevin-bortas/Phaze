@@ -170,6 +170,21 @@
             </objects>
             <point key="canvasLocation" x="2215.9420289855075" y="59.598214285714285"/>
         </scene>
+        <!--Account Set Up View Controller-->
+        <scene sceneID="Vh3-Fq-YXl">
+            <objects>
+                <viewController storyboardIdentifier="AccountSetUp" id="JwK-vl-6ly" customClass="AccountSetUpViewController" customModule="Phaze" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6w2-r0-mMN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qUi-N8-sf1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AXL-I6-h8q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3129" y="834"/>
+        </scene>
         <!--Image View Controller-->
         <scene sceneID="RQX-pO-ydC">
             <objects>
