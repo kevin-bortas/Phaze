@@ -249,7 +249,7 @@
                                 <rect key="frame" x="0.0" y="151" width="414" height="745"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ahJ-UH-wZ0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customWeightPlanCell" id="ahJ-UH-wZ0" customClass="CustomWeightPlanTableViewCell" customModule="Phaze" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahJ-UH-wZ0" id="jZh-ei-1f0">
@@ -292,6 +292,11 @@
                                                 <constraint firstItem="Hlo-Zv-6wD" firstAttribute="top" secondItem="jZh-ei-1f0" secondAttribute="top" constant="5" id="qRh-uT-vkT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellView" destination="Hlo-Zv-6wD" id="U6F-eV-c5C"/>
+                                            <outlet property="weightImage" destination="UUB-ej-wrM" id="SRp-FS-yAP"/>
+                                            <outlet property="weightLabel" destination="KiL-r2-Kh7" id="rKz-Lm-rIg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -312,6 +317,9 @@
                             <constraint firstAttribute="bottom" secondItem="VUw-ZE-oP2" secondAttribute="bottom" id="uSC-U0-VBz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="VUw-ZE-oP2" id="kgh-sR-99i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXL-I6-h8q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
