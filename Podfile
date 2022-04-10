@@ -9,6 +9,7 @@ target 'Phaze' do
   pod 'TensorFlowLiteSwift'
   pod 'Charts'
   pod 'GoogleMLKit/BarcodeScanning'
+  pod 'Alamofire', '~> 5.5'
 
   target 'PhazeTests' do
     inherit! :search_paths

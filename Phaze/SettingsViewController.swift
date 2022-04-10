@@ -45,7 +45,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         if (elements[indexPath.row] == "Logout") {
-            UIApplication.shared.open(URL(string: "https://www.programiz.com/")!, options: [:], completionHandler: nil)
+            User.resetUser()
+            guard let vc =
+                self.storyboard?.instantiateViewController(withIdentifier: "loginView") else {
+                return
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         

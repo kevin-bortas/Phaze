@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.5.0)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
@@ -68,12 +69,14 @@ PODS:
     - TensorFlowLiteC (= 2.7.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.5)
   - Charts
   - GoogleMLKit/BarcodeScanning
   - TensorFlowLiteSwift
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Charts
     - GoogleDataTransport
     - GoogleMLKit
@@ -92,6 +95,7 @@ SPEC REPOS:
     - TensorFlowLiteSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleMLKit: 755661c46990a85e42278015f26400286d98ad95
@@ -109,6 +113,6 @@ SPEC CHECKSUMS:
   TensorFlowLiteC: 50d75ed3640c15dcfbaf88ca4326297b445e00a1
   TensorFlowLiteSwift: fe99748dc3d58ae08bd2ff38658e3ade7038670f
 
-PODFILE CHECKSUM: 836b4b03fd4322f484bcdd1d8411f21cf307b7ca
+PODFILE CHECKSUM: b43db07314457fa8bc3cc463fa539e2c0e6724e3
 
 COCOAPODS: 1.11.2

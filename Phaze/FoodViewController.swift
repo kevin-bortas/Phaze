@@ -366,6 +366,15 @@ class FoodViewController: UIViewController {
         }
         
         User.update()
+        
+        let types = ["calories", "protein", "carbs", "fat"]
+
+        for type in types{
+            User.updateServer(type: type)
+        }
+        
+//        User.updateServer(type: "protein")
+        User.updateMeals()
         goToMainActivity()
     }
     

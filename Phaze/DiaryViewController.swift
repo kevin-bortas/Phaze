@@ -556,6 +556,12 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         } else if gesture.state == .ended || gesture.state == .cancelled {
             breakfastStackView.backgroundColor = .white
         }
+        
+        guard let vc =
+            self.storyboard?.instantiateViewController(withIdentifier: "BreakfastViewController") else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func lunchTapFunction(gesture: UITapGestureRecognizer) {
