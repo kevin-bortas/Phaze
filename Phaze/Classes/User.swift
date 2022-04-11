@@ -10,6 +10,8 @@ import Foundation
 
 class User {
     
+    public static var url:String = "http://server3-env.eba-i2pryzup.eu-west-1.elasticbeanstalk.com/"
+    
     public static var username:String = ""
     public static var password:String = ""
     
@@ -78,6 +80,155 @@ class User {
         }
     }
     
+    static func getUserNutritionalInformation(){
+        
+        let types = ["calories", "protein", "carbs", "fat", "Breakfast", "Lunch", "Dinner", "Snacks"]
+        
+        for type in types {
+            
+            let newUrl = self.url + "retrieve_info"
+        
+            let url = URL(string: newUrl)!
+            var request = URLRequest(url: url)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            let parameters: [String: Any] = [
+                "Username": self.username,
+                "Type": type,
+            ]
+            request.httpBody = parameters.percentEncoded()
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data,
+                    let response = response as? HTTPURLResponse,
+                    error == nil else {
+                    print("error", error ?? "Unknown error")
+                    return
+                }
+                
+                let responseString = String(data: data, encoding: .utf8)
+                print(responseString)
+
+                guard (200 ... 299) ~= response.statusCode else {
+                    print("statusCode should be 2xx, but is \(response.statusCode)")
+                    print("response = \(response)")
+                    return
+                }
+
+                if (response.statusCode == 200){
+                    
+                    switch(type){
+                    case "calories":
+                        let calories = Int(responseString!)
+                        self.setCaloriesEaten(caloriesEaten: calories!)
+                        break
+                    case "protein":
+                        let protein = Double(responseString!)
+                        self.setTotalProtein(totalProtein: protein!)
+                        break
+                    case "carbs":
+                        let carbs = Double(responseString!)
+                        self.setTotalCarbs(totalCarbs: carbs!)
+                        break
+                    case "fat":
+                        let fat = Double(responseString!)
+                        self.setTotalFat(totalFat: fat!)
+                        break
+                    case "Breakfast":
+                        // Updates Breakfast
+                        let array = responseString?.split(separator: "|")
+                        var food_list:[Food] = []
+                        for item in array! {
+                            if (item != "None") {
+                                let tokens = item.split(separator: "%")
+                                let name = String(tokens[0])
+                                let measure = String(tokens[1])
+                                let c = tokens[2]
+                                let p = tokens[3]
+                                let cb = tokens[4]
+                                let f = tokens[5]
+                                print(name, measure)
+                                let food = Food(n: name, measure: measure, c: Double(c)!, p: Double(p)!, cb: Double(cb)!, f: Double(f)!)
+                                food_list.append(food)
+                            }
+                        }
+                        Breakfast.updateMeals(foods: food_list);
+                        break
+                    case "Lunch":
+                        // Updates Lunch
+                        let array = responseString?.split(separator: "|")
+                        var food_list:[Food] = []
+                        for item in array! {
+                            if (item != "None") {
+                                let tokens = item.split(separator: "%")
+                                let name = String(tokens[0])
+                                let measure = String(tokens[1])
+                                let c = tokens[2]
+                                let p = tokens[3]
+                                let cb = tokens[4]
+                                let f = tokens[5]
+                                print(name, measure)
+                                let food = Food(n: name, measure: measure, c: Double(c)!, p: Double(p)!, cb: Double(cb)!, f: Double(f)!)
+                                food_list.append(food)
+                            }
+                        }
+                        Lunch.updateMeals(foods: food_list);
+                        print("Lunch")
+                        break
+                    case "Dinner":
+                        // Updates Dinner
+                        let array = responseString?.split(separator: "|")
+                        var food_list:[Food] = []
+                        for item in array! {
+                            if (item != "None") {
+                                let tokens = item.split(separator: "%")
+                                let name = String(tokens[0])
+                                let measure = String(tokens[1])
+                                let c = tokens[2]
+                                let p = tokens[3]
+                                let cb = tokens[4]
+                                let f = tokens[5]
+                                print(name, measure)
+                                let food = Food(n: name, measure: measure, c: Double(c)!, p: Double(p)!, cb: Double(cb)!, f: Double(f)!)
+                                food_list.append(food)
+                            }
+                        }
+                        Dinner.updateMeals(foods: food_list);
+                        print("Dinner")
+                        break
+                    case "Snacks":
+                        // Updates Snacks
+                        let array = responseString?.split(separator: "|")
+                        var food_list:[Food] = []
+                        for item in array! {
+                            if (item != "None") {
+                                let tokens = item.split(separator: "%")
+                                let name = String(tokens[0])
+                                let measure = String(tokens[1])
+                                let c = tokens[2]
+                                let p = tokens[3]
+                                let cb = tokens[4]
+                                let f = tokens[5]
+                                print(name, measure)
+                                let food = Food(n: name, measure: measure, c: Double(c)!, p: Double(p)!, cb: Double(cb)!, f: Double(f)!)
+                                food_list.append(food)
+                            }
+                        }
+                        Snacks.updateMeals(foods: food_list);
+                        print("Snacks")
+                        break
+                    default:
+                        break
+                    }
+                    
+                    print("success");
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    
     static func updateServer(type:String){
         var value:String = "";
         
@@ -97,8 +248,10 @@ class User {
             default:
                 break
         }
+        
+        let newUrl = self.url + "update_micro"
     
-        let url = URL(string: "http://flaskserver-env.eba-av8isidr.eu-west-1.elasticbeanstalk.com/update_micro")!
+        let url = URL(string: newUrl)!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -180,7 +333,9 @@ class User {
                     break
             }
             
-            let url = URL(string: "http://flaskserver-env.eba-av8isidr.eu-west-1.elasticbeanstalk.com/update_food")!
+            let newUrl = self.url + "update_food"
+            
+            let url = URL(string: newUrl)!
             var request = URLRequest(url: url)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             request.httpMethod = "POST"

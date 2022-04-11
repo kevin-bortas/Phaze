@@ -39,7 +39,9 @@ class ViewController: UIViewController {
     }
     
     func login() {
-        let url = URL(string: "http://flaskserver-env.eba-av8isidr.eu-west-1.elasticbeanstalk.com/login")!
+        let newUrl = User.url + "login"
+        
+        let url = URL(string: newUrl)!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -72,6 +74,7 @@ class ViewController: UIViewController {
                 User.username = username
                 User.password = password
                 DispatchQueue.main.async {
+                    User.getUserNutritionalInformation()
                     self.goToMainActivity()
                 }
             }
