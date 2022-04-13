@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BreakfastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LunchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let elements = ["Pie", "Beer", "Corn", "Grapes", "Melon"]
+    let elements = ["Lunch", "Beer", "Corn", "Grapes", "Melon"]
 
     
     
@@ -67,11 +67,11 @@ class BreakfastViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "breakfastCell") as! CustomBreakfastTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "lunchCell") as! CustomLunchTableViewCell
 
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 3.5
 
-        cell.breakfastLabel.text = elements[indexPath.row]
+        cell.lunchLabel.text = elements[indexPath.row]
 //        cell.breakfastImage.image = UIImage(named: elements[indexPath.row])
 //        cell.settingsImage.layer.cornerRadius = cell.settingsImage.frame.height / 2
 

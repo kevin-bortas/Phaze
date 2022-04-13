@@ -51,6 +51,9 @@
 		1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */; };
 		1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */; };
 		1C7D917D27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D917C27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift */; };
+		1C7D918328038B2A00199BA7 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D918228038B2A00199BA7 /* LunchViewController.swift */; };
+		1C7D918528038B6F00199BA7 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D918428038B6F00199BA7 /* DinnerViewController.swift */; };
+		1C7D918728038BBE00199BA7 /* SnackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D918628038BBE00199BA7 /* SnackViewController.swift */; };
 		3DEBDA46BADFD2CCCD132627 /* Pods_Phaze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC5BE926D83EC31E4B5BFC1 /* Pods_Phaze.framework */; };
 		8EBDAE78F2A986475993F8C3 /* Pods_PhazeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */; };
 /* End PBXBuildFile section */
@@ -139,6 +142,9 @@
 		1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingTableViewCell.swift; sourceTree = "<group>"; };
 		1C7D917C27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeightPlanTableViewCell.swift; sourceTree = "<group>"; };
+		1C7D918228038B2A00199BA7 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
+		1C7D918428038B6F00199BA7 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
+		1C7D918628038BBE00199BA7 /* SnackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewController.swift; sourceTree = "<group>"; };
 		4A3207AAE63353C6F7EEFCC9 /* Pods-Phaze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze.debug.xcconfig"; path = "Target Support Files/Pods-Phaze/Pods-Phaze.debug.xcconfig"; sourceTree = "<group>"; };
 		75565EFF55C436A2943A2FE7 /* Pods-PhazeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhazeTests.debug.xcconfig"; path = "Target Support Files/Pods-PhazeTests/Pods-PhazeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		85806195E1C6E203887502AA /* Pods-Phaze-PhazeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phaze-PhazeUITests.release.xcconfig"; path = "Target Support Files/Pods-Phaze-PhazeUITests/Pods-Phaze-PhazeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +315,9 @@
 				1C7D917C27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift */,
 				0A67F1372801EE2200811749 /* APICaller.swift */,
 				0A4575C72803826E008A6D69 /* BreakfastViewController.swift */,
+				1C7D918228038B2A00199BA7 /* LunchViewController.swift */,
+				1C7D918428038B6F00199BA7 /* DinnerViewController.swift */,
+				1C7D918628038BBE00199BA7 /* SnackViewController.swift */,
 			);
 			path = Phaze;
 			sourceTree = "<group>";
@@ -622,6 +631,7 @@
 			files = (
 				0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */,
 				0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */,
+				1C7D918328038B2A00199BA7 /* LunchViewController.swift in Sources */,
 				1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */,
 				0A67F1382801EE2200811749 /* APICaller.swift in Sources */,
 				1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */,
@@ -629,6 +639,7 @@
 				0A19310027CEE6F8005C486C /* Lunch.swift in Sources */,
 				0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */,
 				0A1930FE27CEE581005C486C /* Breakfast.swift in Sources */,
+				1C7D918528038B6F00199BA7 /* DinnerViewController.swift in Sources */,
 				0AD12065279DE053007609A5 /* FoodResultsLauncher.swift in Sources */,
 				0AE0AF7F27F1D3630039D097 /* User.swift in Sources */,
 				0A19310727D0F084005C486C /* Edamam.swift in Sources */,
@@ -644,6 +655,7 @@
 				0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */,
 				0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */,
 				0AD1206A279DEAFC007609A5 /* FoodResultsCell.swift in Sources */,
+				1C7D918728038BBE00199BA7 /* SnackViewController.swift in Sources */,
 				0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */,
 				0A97B02127A2F2DE009C1586 /* DataViewController.swift in Sources */,
 				0A300BDA27E2070E00A7B6E5 /* PaddingLabel.swift in Sources */,
@@ -830,13 +842,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NH85SD292Y;
+				DEVELOPMENT_TEAM = 7T6NF3247W;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kevincogan.Phaze;
+				PRODUCT_BUNDLE_IDENTIFIER = kevincogan21.Phaze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -849,13 +861,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 78MM3KCBXX;
+				DEVELOPMENT_TEAM = 7T6NF3247W;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kevincogan.Phaze;
+				PRODUCT_BUNDLE_IDENTIFIER = kevincogan21.Phaze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
