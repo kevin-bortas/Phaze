@@ -558,7 +558,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         }
         
         guard let vc =
-            self.storyboard?.instantiateViewController(withIdentifier: "BreakfastViewController") else {
+            self.storyboard?.instantiateViewController(withIdentifier: "BreakfastView") else {
             return
         }
         self.navigationController?.pushViewController(vc, animated: true)

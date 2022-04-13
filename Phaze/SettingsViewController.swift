@@ -12,8 +12,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     let elements = ["Delete Account", "Privacy & Security", "Help & Support", "About", "Logout"]
 
-    @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var displayLabel: UILabel!
     var index: Int?
     
