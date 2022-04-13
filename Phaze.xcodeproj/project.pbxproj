@@ -16,6 +16,10 @@
 		0A19310427CEE72A005C486C /* Snacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A19310327CEE72A005C486C /* Snacks.swift */; };
 		0A19310727D0F084005C486C /* Edamam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A19310627D0F084005C486C /* Edamam.swift */; };
 		0A300BDA27E2070E00A7B6E5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A300BD927E2070E00A7B6E5 /* PaddingLabel.swift */; };
+		0A3B74A02807426E001612B8 /* CustomDinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B749C2807426D001612B8 /* CustomDinnerTableViewCell.swift */; };
+		0A3B74A12807426E001612B8 /* CustomBreakfastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B749D2807426D001612B8 /* CustomBreakfastTableViewCell.swift */; };
+		0A3B74A22807426E001612B8 /* CustomLunchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B749E2807426D001612B8 /* CustomLunchTableViewCell.swift */; };
+		0A3B74A32807426E001612B8 /* CustomSnackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B749F2807426E001612B8 /* CustomSnackTableViewCell.swift */; };
 		0A4575C82803826E008A6D69 /* BreakfastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4575C72803826E008A6D69 /* BreakfastViewController.swift */; };
 		0A67F1382801EE2200811749 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67F1372801EE2200811749 /* APICaller.swift */; };
 		0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAC27983E4C0021A41E /* CurvedView.swift */; };
@@ -49,10 +53,6 @@
 		0AEB907227FE366600E2ABDD /* AccountSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */; };
 		0CB92BE8CB3628827F45223A /* Pods_Phaze_PhazeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */; };
 		1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */; };
-		1C7528A128073E1A00A58BB6 /* CustomLunchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75289D28073E1A00A58BB6 /* CustomLunchTableViewCell.swift */; };
-		1C7528A228073E1A00A58BB6 /* CustomDinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75289E28073E1A00A58BB6 /* CustomDinnerTableViewCell.swift */; };
-		1C7528A328073E1A00A58BB6 /* CustomSnackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75289F28073E1A00A58BB6 /* CustomSnackTableViewCell.swift */; };
-		1C7528A428073E1A00A58BB6 /* CustomBreakfastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7528A028073E1A00A58BB6 /* CustomBreakfastTableViewCell.swift */; };
 		1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */; };
 		1C7D917D27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D917C27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift */; };
 		1C7D918328038B2A00199BA7 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D918228038B2A00199BA7 /* LunchViewController.swift */; };
@@ -103,6 +103,10 @@
 		0A19310327CEE72A005C486C /* Snacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snacks.swift; sourceTree = "<group>"; };
 		0A19310627D0F084005C486C /* Edamam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edamam.swift; sourceTree = "<group>"; };
 		0A300BD927E2070E00A7B6E5 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		0A3B749C2807426D001612B8 /* CustomDinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomDinnerTableViewCell.swift; path = ../../../../../../Downloads/CustomDinnerTableViewCell.swift; sourceTree = "<group>"; };
+		0A3B749D2807426D001612B8 /* CustomBreakfastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBreakfastTableViewCell.swift; path = ../../../../../../Downloads/CustomBreakfastTableViewCell.swift; sourceTree = "<group>"; };
+		0A3B749E2807426D001612B8 /* CustomLunchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLunchTableViewCell.swift; path = ../../../../../../Downloads/CustomLunchTableViewCell.swift; sourceTree = "<group>"; };
+		0A3B749F2807426E001612B8 /* CustomSnackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSnackTableViewCell.swift; path = ../../../../../../Downloads/CustomSnackTableViewCell.swift; sourceTree = "<group>"; };
 		0A4526D327A994BC00F47E79 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		0A4575C72803826E008A6D69 /* BreakfastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastViewController.swift; sourceTree = "<group>"; };
 		0A67F1372801EE2200811749 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -144,10 +148,6 @@
 		0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetUpViewController.swift; sourceTree = "<group>"; };
 		16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhazeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		1C75289D28073E1A00A58BB6 /* CustomLunchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLunchTableViewCell.swift; path = "../../Phaze 3/Phaze/CustomLunchTableViewCell.swift"; sourceTree = "<group>"; };
-		1C75289E28073E1A00A58BB6 /* CustomDinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomDinnerTableViewCell.swift; path = "../../Phaze 3/Phaze/CustomDinnerTableViewCell.swift"; sourceTree = "<group>"; };
-		1C75289F28073E1A00A58BB6 /* CustomSnackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSnackTableViewCell.swift; path = "../../Phaze 3/Phaze/CustomSnackTableViewCell.swift"; sourceTree = "<group>"; };
-		1C7528A028073E1A00A58BB6 /* CustomBreakfastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBreakfastTableViewCell.swift; path = "../../Phaze 3/Phaze/CustomBreakfastTableViewCell.swift"; sourceTree = "<group>"; };
 		1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingTableViewCell.swift; sourceTree = "<group>"; };
 		1C7D917C27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeightPlanTableViewCell.swift; sourceTree = "<group>"; };
 		1C7D918228038B2A00199BA7 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
@@ -326,10 +326,10 @@
 				1C7D918228038B2A00199BA7 /* LunchViewController.swift */,
 				1C7D918428038B6F00199BA7 /* DinnerViewController.swift */,
 				1C7D918628038BBE00199BA7 /* SnackViewController.swift */,
-				1C7528A028073E1A00A58BB6 /* CustomBreakfastTableViewCell.swift */,
-				1C75289E28073E1A00A58BB6 /* CustomDinnerTableViewCell.swift */,
-				1C75289D28073E1A00A58BB6 /* CustomLunchTableViewCell.swift */,
-				1C75289F28073E1A00A58BB6 /* CustomSnackTableViewCell.swift */,
+				0A3B749D2807426D001612B8 /* CustomBreakfastTableViewCell.swift */,
+				0A3B749C2807426D001612B8 /* CustomDinnerTableViewCell.swift */,
+				0A3B749E2807426D001612B8 /* CustomLunchTableViewCell.swift */,
+				0A3B749F2807426E001612B8 /* CustomSnackTableViewCell.swift */,
 			);
 			path = Phaze;
 			sourceTree = "<group>";
@@ -642,7 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */,
-				1C7528A428073E1A00A58BB6 /* CustomBreakfastTableViewCell.swift in Sources */,
+				0A3B74A22807426E001612B8 /* CustomLunchTableViewCell.swift in Sources */,
 				0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */,
 				1C7D918328038B2A00199BA7 /* LunchViewController.swift in Sources */,
 				1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */,
@@ -659,8 +659,7 @@
 				0AB7249027849BD3005CA6A4 /* AppDelegate.swift in Sources */,
 				0AD12068279DE5F8007609A5 /* ImageViewController.swift in Sources */,
 				0A4575C82803826E008A6D69 /* BreakfastViewController.swift in Sources */,
-				1C7528A328073E1A00A58BB6 /* CustomSnackTableViewCell.swift in Sources */,
-				1C7528A128073E1A00A58BB6 /* CustomLunchTableViewCell.swift in Sources */,
+				0A3B74A12807426E001612B8 /* CustomBreakfastTableViewCell.swift in Sources */,
 				0A97B01927A2E65E009C1586 /* SwipingController.swift in Sources */,
 				0A97B02327A2F9A2009C1586 /* CustomPageViewController.swift in Sources */,
 				0ACAD2DE27F6086500BA2D3E /* Helper.swift in Sources */,
@@ -668,14 +667,15 @@
 				0AEB907227FE366600E2ABDD /* AccountSetUpViewController.swift in Sources */,
 				0A19310227CEE719005C486C /* Dinner.swift in Sources */,
 				0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */,
+				0A3B74A32807426E001612B8 /* CustomSnackTableViewCell.swift in Sources */,
 				0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */,
+				0A3B74A02807426E001612B8 /* CustomDinnerTableViewCell.swift in Sources */,
 				0AD1206A279DEAFC007609A5 /* FoodResultsCell.swift in Sources */,
 				1C7D918728038BBE00199BA7 /* SnackViewController.swift in Sources */,
 				0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */,
 				0A97B02127A2F2DE009C1586 /* DataViewController.swift in Sources */,
 				0A300BDA27E2070E00A7B6E5 /* PaddingLabel.swift in Sources */,
 				0AB7249227849BD3005CA6A4 /* SceneDelegate.swift in Sources */,
-				1C7528A228073E1A00A58BB6 /* CustomDinnerTableViewCell.swift in Sources */,
 				0A97B01B27A2E991009C1586 /* SettingsViewController.swift in Sources */,
 				0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */,
 				0A19310427CEE72A005C486C /* Snacks.swift in Sources */,
@@ -858,13 +858,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7T6NF3247W;
+				DEVELOPMENT_TEAM = NH85SD292Y;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kevincogan27.Phaze;
+				PRODUCT_BUNDLE_IDENTIFIER = kevincoganphaze.Phaze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -877,13 +877,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7T6NF3247W;
+				DEVELOPMENT_TEAM = NH85SD292Y;
 				INFOPLIST_FILE = Phaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kevincogan27.Phaze;
+				PRODUCT_BUNDLE_IDENTIFIER = kevincoganphaze.Phaze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
