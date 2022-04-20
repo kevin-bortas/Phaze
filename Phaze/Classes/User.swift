@@ -10,7 +10,7 @@ import Foundation
 
 class User {
     
-    public static var url:String = "http://server3-env.eba-i2pryzup.eu-west-1.elasticbeanstalk.com/"
+    public static var url:String = "http://website4-env.eba-m9njkfbd.eu-west-1.elasticbeanstalk.com/"
     
     public static var username:String = ""
     public static var password:String = ""
@@ -34,6 +34,11 @@ class User {
         totalProtein = 0.0
         totalCarbs = 0.0
         totalFat = 0.0
+        
+        Breakfast.reset()
+        Lunch.reset()
+        Dinner.reset()
+        Snacks.reset()
     }
     
     // Updates the user information locally
