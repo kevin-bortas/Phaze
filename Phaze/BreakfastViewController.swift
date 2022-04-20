@@ -10,13 +10,22 @@ import UIKit
 
 class BreakfastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let elements = ["Pie", "Beer", "Corn", "Grapes", "Melon"]
+    let elements = Breakfast.getMeals()
 
     
-    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var displayLabel: UILabel!
     var index: Int?
+    
+    @IBAction func BackButton(_ sender: Any) {
+        guard let vc =
+            self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     override func viewDidLoad() {
         
@@ -29,31 +38,22 @@ class BreakfastViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected \(elements[indexPath.row]).")
         
-        if (elements[indexPath.row] == "Delete Account") {
-            UIApplication.shared.open(URL(string: "https://www.programiz.com/swift-programming/if-else-statement#:~:text=The%20if...else%20statement%20evaluates%20the%20condition%20inside%20the,code%20inside%20else%20is%20skipped")!, options: [:], completionHandler: nil)
-        }
+        Breakfast.removeMeal(position: indexPath.row)
         
-        if (elements[indexPath.row] == "Privacy & Security") {
-            UIApplication.shared.open(URL(string: "https://www.privacypolicies.com/live/1262b0a2-1e18-4c19-81f2-49d6c51b9f46")!, options: [:], completionHandler: nil)
-        }
+        User.update()
         
-        if (elements[indexPath.row] == "Help & Support") {
-            UIApplication.shared.open(URL(string: "http://website-env-1.eba-3evzsc6b.eu-west-1.elasticbeanstalk.com/#contact")!, options: [:], completionHandler: nil)
+        let types = ["calories", "protein", "carbs", "fat"]
+
+        for type in types{
+            User.updateServer(type: type)
         }
-        
-        if (elements[indexPath.row] == "About") {
-            UIApplication.shared.open(URL(string: "http://website-env-1.eba-3evzsc6b.eu-west-1.elasticbeanstalk.com/#about")!, options: [:], completionHandler: nil)
+        User.updateMeals()
+
+        guard let vc =
+            self.storyboard?.instantiateViewController(withIdentifier: "BreakfastView") else {
+            return
         }
-        
-        if (elements[indexPath.row] == "Logout") {
-            User.resetUser()
-            guard let vc =
-                self.storyboard?.instantiateViewController(withIdentifier: "loginView") else {
-                return
-            }
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 
@@ -71,7 +71,7 @@ class BreakfastViewController: UIViewController, UITableViewDelegate, UITableVie
 
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 3.5
 
-        cell.breakfastLabel.text = elements[indexPath.row]
+        cell.breakfastLabel.text = elements[indexPath.row].getName()
 //        cell.breakfastImage.image = UIImage(named: elements[indexPath.row])
 //        cell.settingsImage.layer.cornerRadius = cell.settingsImage.frame.height / 2
 

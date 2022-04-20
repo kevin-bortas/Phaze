@@ -85,7 +85,7 @@ class User {
         let types = ["calories", "protein", "carbs", "fat", "Breakfast", "Lunch", "Dinner", "Snacks"]
         
         for type in types {
-            
+            usleep(200000)
             let newUrl = self.url + "retrieve_info"
         
             let url = URL(string: newUrl)!
@@ -230,6 +230,7 @@ class User {
     }
     
     static func updateServer(type:String){
+        usleep(200000)
         var value:String = "";
         
         switch (type){
@@ -293,7 +294,7 @@ class User {
         let meals = ["Breakfast", "Lunch", "Dinner", "Snacks"]
         
         for meal in meals {
-            
+            usleep(200000)
             var mealInformation:String = ""
             
             switch (meal){

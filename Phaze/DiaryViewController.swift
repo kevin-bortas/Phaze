@@ -570,6 +570,12 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         } else if gesture.state == .ended || gesture.state == .cancelled {
             lunchStackView.backgroundColor = .white
         }
+        
+        guard let vc =
+            self.storyboard?.instantiateViewController(withIdentifier: "LunchView") else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func dinnerTapFunction(gesture: UITapGestureRecognizer) {
@@ -578,6 +584,12 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         } else if gesture.state == .ended || gesture.state == .cancelled {
             dinnerStackView.backgroundColor = .white
         }
+        
+        guard let vc =
+            self.storyboard?.instantiateViewController(withIdentifier: "DinnerView") else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func snacksTapFunction(gesture: UITapGestureRecognizer) {
@@ -585,6 +597,10 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         if gesture.state == .ended || gesture.state == .cancelled {
             snacksStackView.backgroundColor = .white
         }
-        print(gesture)
+        guard let vc =
+            self.storyboard?.instantiateViewController(withIdentifier: "SnackView") else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
