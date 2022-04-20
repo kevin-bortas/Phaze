@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0038A327982E9B004608D0 /* FoodViewController.swift */; };
-		0A0038A727983363004608D0 /* ModelDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0038A627983363004608D0 /* ModelDataHandler.swift */; };
 		0A1930FB27CEDB15005C486C /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1930FA27CEDB15005C486C /* Food.swift */; };
 		0A1930FE27CEE581005C486C /* Breakfast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1930FD27CEE581005C486C /* Breakfast.swift */; };
 		0A19310027CEE6F8005C486C /* Lunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1930FF27CEE6F8005C486C /* Lunch.swift */; };
@@ -23,18 +22,20 @@
 		0A4575C82803826E008A6D69 /* BreakfastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4575C72803826E008A6D69 /* BreakfastViewController.swift */; };
 		0A67F1382801EE2200811749 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67F1372801EE2200811749 /* APICaller.swift */; };
 		0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAC27983E4C0021A41E /* CurvedView.swift */; };
-		0A7ECAAF27983E8F0021A41E /* InferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */; };
 		0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB1279841460021A41E /* InfoCell.swift */; };
 		0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */; };
 		0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */; };
+		0A9218B228102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B028102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift */; };
+		0A9218B328102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B128102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		0A9218B528102CA200F7E2C0 /* NewFoodClassifierPhaze2022_3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B428102CA200F7E2C0 /* NewFoodClassifierPhaze2022_3.mlmodel */; };
+		0A9218B828102CB200F7E2C0 /* MealTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B628102CB200F7E2C0 /* MealTVC.swift */; };
+		0A9218B928102CB200F7E2C0 /* FoodIdentifierModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B728102CB200F7E2C0 /* FoodIdentifierModelHandler.swift */; };
 		0A97B01927A2E65E009C1586 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01827A2E65E009C1586 /* SwipingController.swift */; };
 		0A97B01B27A2E991009C1586 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01A27A2E991009C1586 /* SettingsViewController.swift */; };
 		0A97B01F27A2EBE4009C1586 /* MainActivityDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01E27A2EBE4009C1586 /* MainActivityDisplayController.swift */; };
 		0A97B02127A2F2DE009C1586 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02027A2F2DE009C1586 /* DataViewController.swift */; };
 		0A97B02327A2F9A2009C1586 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */; };
 		0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02427A30B11009C1586 /* DiaryViewController.swift */; };
-		0AA82A1627DA4FAA00721D3F /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 0AA82A1427DA4FAA00721D3F /* converted_model.tflite */; };
-		0AA82A1727DA4FAA00721D3F /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0AA82A1527DA4FAA00721D3F /* labels.txt */; };
 		0AB7249027849BD3005CA6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7248F27849BD3005CA6A4 /* AppDelegate.swift */; };
 		0AB7249227849BD3005CA6A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7249127849BD3005CA6A4 /* SceneDelegate.swift */; };
 		0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7249327849BD3005CA6A4 /* ViewController.swift */; };
@@ -48,7 +49,6 @@
 		0AD12065279DE053007609A5 /* FoodResultsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12064279DE053007609A5 /* FoodResultsLauncher.swift */; };
 		0AD12068279DE5F8007609A5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12067279DE5F8007609A5 /* ImageViewController.swift */; };
 		0AD1206A279DEAFC007609A5 /* FoodResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD12069279DEAFC007609A5 /* FoodResultsCell.swift */; };
-		0AD1206C279DF872007609A5 /* ModelResultsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1206B279DF872007609A5 /* ModelResultsHolder.swift */; };
 		0AE0AF7F27F1D3630039D097 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0AF7E27F1D3630039D097 /* User.swift */; };
 		0AEB907227FE366600E2ABDD /* AccountSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */; };
 		0CB92BE8CB3628827F45223A /* Pods_Phaze_PhazeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80B9A38C58D480C60AEC68D /* Pods_Phaze_PhazeUITests.framework */; };
@@ -95,7 +95,6 @@
 
 /* Begin PBXFileReference section */
 		0A0038A327982E9B004608D0 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
-		0A0038A627983363004608D0 /* ModelDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataHandler.swift; sourceTree = "<group>"; };
 		0A1930FA27CEDB15005C486C /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		0A1930FD27CEE581005C486C /* Breakfast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breakfast.swift; sourceTree = "<group>"; };
 		0A1930FF27CEE6F8005C486C /* Lunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lunch.swift; sourceTree = "<group>"; };
@@ -112,18 +111,20 @@
 		0A67F1372801EE2200811749 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		0A6F46A527D0F62200271C59 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7ECAAC27983E4C0021A41E /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
-		0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceViewController.swift; sourceTree = "<group>"; };
 		0A7ECAB1279841460021A41E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBufferExtension.swift; sourceTree = "<group>"; };
 		0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActivityViewController.swift; sourceTree = "<group>"; };
+		0A9218B028102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VNClassificationObservation+confidenceString.swift"; sourceTree = "<group>"; };
+		0A9218B128102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
+		0A9218B428102CA200F7E2C0 /* NewFoodClassifierPhaze2022_3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = NewFoodClassifierPhaze2022_3.mlmodel; sourceTree = "<group>"; };
+		0A9218B628102CB200F7E2C0 /* MealTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealTVC.swift; path = "../../../../test copy/Phaze/Phaze/modelDataHandler/MealTVC.swift"; sourceTree = "<group>"; };
+		0A9218B728102CB200F7E2C0 /* FoodIdentifierModelHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodIdentifierModelHandler.swift; sourceTree = "<group>"; };
 		0A97B01827A2E65E009C1586 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		0A97B01A27A2E991009C1586 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0A97B01E27A2EBE4009C1586 /* MainActivityDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActivityDisplayController.swift; sourceTree = "<group>"; };
 		0A97B02027A2F2DE009C1586 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		0A97B02427A30B11009C1586 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
-		0AA82A1427DA4FAA00721D3F /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = converted_model.tflite; sourceTree = "<group>"; };
-		0AA82A1527DA4FAA00721D3F /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		0AB7248C27849BD3005CA6A4 /* Phaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB7248F27849BD3005CA6A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AB7249127849BD3005CA6A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		0AD12064279DE053007609A5 /* FoodResultsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResultsLauncher.swift; sourceTree = "<group>"; };
 		0AD12067279DE5F8007609A5 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		0AD12069279DEAFC007609A5 /* FoodResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResultsCell.swift; sourceTree = "<group>"; };
-		0AD1206B279DF872007609A5 /* ModelResultsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResultsHolder.swift; sourceTree = "<group>"; };
 		0AE0AF7E27F1D3630039D097 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetUpViewController.swift; sourceTree = "<group>"; };
 		16052C624B2DF5818B45F560 /* Pods_PhazeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhazeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,8 +194,8 @@
 		0A0038A52798333D004608D0 /* modelDataHandler */ = {
 			isa = PBXGroup;
 			children = (
-				0A0038A627983363004608D0 /* ModelDataHandler.swift */,
-				0AD1206B279DF872007609A5 /* ModelResultsHolder.swift */,
+				0A9218B728102CB200F7E2C0 /* FoodIdentifierModelHandler.swift */,
+				0A9218B628102CB200F7E2C0 /* MealTVC.swift */,
 			);
 			path = modelDataHandler;
 			sourceTree = "<group>";
@@ -253,10 +253,18 @@
 		0A85353127AC155B00E9C33A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0AA82A1427DA4FAA00721D3F /* converted_model.tflite */,
-				0AA82A1527DA4FAA00721D3F /* labels.txt */,
+				0A9218B428102CA200F7E2C0 /* NewFoodClassifierPhaze2022_3.mlmodel */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0A9218AF28102C8600F7E2C0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A9218B028102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift */,
+				0A9218B128102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0A97B01727A2E648009C1586 /* misc */ = {
@@ -293,6 +301,7 @@
 		0AB7248E27849BD3005CA6A4 /* Phaze */ = {
 			isa = PBXGroup;
 			children = (
+				0A9218AF28102C8600F7E2C0 /* Extensions */,
 				0A1930F927CEDB04005C486C /* Classes */,
 				0A85353127AC155B00E9C33A /* Model */,
 				0A97B01727A2E648009C1586 /* misc */,
@@ -310,7 +319,6 @@
 				0AB7249827849BD4005CA6A4 /* Assets.xcassets */,
 				0AB7249A27849BD4005CA6A4 /* LaunchScreen.storyboard */,
 				0AB7249D27849BD4005CA6A4 /* Info.plist */,
-				0A7ECAAE27983E8F0021A41E /* InferenceViewController.swift */,
 				0AD12062279DDF04007609A5 /* MealViewController.swift */,
 				0AD12067279DE5F8007609A5 /* ImageViewController.swift */,
 				0A97B01A27A2E991009C1586 /* SettingsViewController.swift */,
@@ -511,8 +519,6 @@
 			files = (
 				0AB7249C27849BD4005CA6A4 /* LaunchScreen.storyboard in Resources */,
 				0AB7249927849BD4005CA6A4 /* Assets.xcassets in Resources */,
-				0AA82A1727DA4FAA00721D3F /* labels.txt in Resources */,
-				0AA82A1627DA4FAA00721D3F /* converted_model.tflite in Resources */,
 				0AB7249727849BD3005CA6A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,11 +650,12 @@
 				0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */,
 				0A3B74A22807426E001612B8 /* CustomLunchTableViewCell.swift in Sources */,
 				0AB7249427849BD3005CA6A4 /* ViewController.swift in Sources */,
+				0A9218B228102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift in Sources */,
 				1C7D918328038B2A00199BA7 /* LunchViewController.swift in Sources */,
+				0A9218B328102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */,
 				0A67F1382801EE2200811749 /* APICaller.swift in Sources */,
 				1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */,
-				0A0038A727983363004608D0 /* ModelDataHandler.swift in Sources */,
 				0A19310027CEE6F8005C486C /* Lunch.swift in Sources */,
 				0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */,
 				0A1930FE27CEE581005C486C /* Breakfast.swift in Sources */,
@@ -666,6 +673,8 @@
 				0A97B01F27A2EBE4009C1586 /* MainActivityDisplayController.swift in Sources */,
 				0AEB907227FE366600E2ABDD /* AccountSetUpViewController.swift in Sources */,
 				0A19310227CEE719005C486C /* Dinner.swift in Sources */,
+				0A9218B828102CB200F7E2C0 /* MealTVC.swift in Sources */,
+				0A9218B528102CA200F7E2C0 /* NewFoodClassifierPhaze2022_3.mlmodel in Sources */,
 				0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */,
 				0A3B74A32807426E001612B8 /* CustomSnackTableViewCell.swift in Sources */,
 				0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */,
@@ -679,10 +688,9 @@
 				0A97B01B27A2E991009C1586 /* SettingsViewController.swift in Sources */,
 				0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */,
 				0A19310427CEE72A005C486C /* Snacks.swift in Sources */,
+				0A9218B928102CB200F7E2C0 /* FoodIdentifierModelHandler.swift in Sources */,
 				0A1930FB27CEDB15005C486C /* Food.swift in Sources */,
 				0AD12063279DDF04007609A5 /* MealViewController.swift in Sources */,
-				0A7ECAAF27983E8F0021A41E /* InferenceViewController.swift in Sources */,
-				0AD1206C279DF872007609A5 /* ModelResultsHolder.swift in Sources */,
 				1C7D917D27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

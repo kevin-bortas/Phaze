@@ -15,6 +15,9 @@ class MainActivityViewController: UIViewController {
     
     var index: Int?
     
+    let foodIdentifier = ImagePredictor()
+    var prediction: String = ""
+    
     var session: AVCaptureSession?
     let output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
@@ -29,20 +32,8 @@ class MainActivityViewController: UIViewController {
         return button
     }()
     
-    private var result: Inference?
-    
-    private var modelDataHandler: ModelDataHandler? =
-      ModelDataHandler(modelFileInfo: MobileNet.modelInfo, labelsFileInfo: MobileNet.labelsInfo)
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard modelDataHandler != nil else {
-          fatalError("Model set up failed")
-        }
         
         previewLayer.backgroundColor = UIColor.systemRed.cgColor
 
@@ -164,15 +155,64 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         let minLen = min(image.size.width, image.size.height)
         let resizedImage = image.resize(to: CGSize(width: inputImageSize * image.size.width / minLen, height: inputImageSize * image.size.height / minLen))
         let cropedToSquareImage = resizedImage.cropToSquare()
+        
+        ImagePredictor.createImageClassifier()
+        classifyImage(cropedToSquareImage!)
+        let myResult = prediction.split(separator: "-")
+        print(myResult[0])
 
         guard let pixelBuffer = cropedToSquareImage?.pixelBuffer() else {
             fatalError()
         }
         
-        result = modelDataHandler?.runModel(onFrame: pixelBuffer)?.inferences[0]
-        ModelResultsHolder.modelResult = result
-        
-        barcodeScanner(image: image, prediction: "ingr=" + result!.label)
+        barcodeScanner(image: image, prediction: "ingr=" + myResult[0])
+    }
+    
+    
+    // MARK: Image prediction methods
+    /// Sends a photo to the Image Predictor to get a prediction of its content.
+    /// - Parameter image: A photo.
+    func classifyImage(_ image: UIImage) {
+        do {
+            try self.foodIdentifier.makePredictions(for: image,
+                                                    completionHandler: imagePredictionHandler)
+        } catch {
+            print("Vision was unable to make a prediction...\n\n\(error.localizedDescription)")
+        }
+    }
+
+    /// The method the Image Predictor calls when its image classifier model generates a prediction.
+    /// - Parameter predictions: An array of predictions.
+    /// - Tag: imagePredictionHandler
+    private func imagePredictionHandler(_ predictions: [ImagePredictor.Prediction]?) {
+        guard let predictions = predictions else {
+            print("No predictions. (Check console log.)")
+            return
+        }
+
+        let formattedPredictions = formatPredictions(predictions)
+
+        let predictionString = formattedPredictions.joined(separator: "\n")
+        prediction = predictionString
+    }
+
+    /// Converts a prediction's observations into human-readable strings.
+    /// - Parameter observations: The classification observations from a Vision request.
+    /// - Tag: formatPredictions
+    private func formatPredictions(_ predictions: [ImagePredictor.Prediction]) -> [String] {
+        // Vision sorts the classifications in descending confidence order.
+        let topPredictions: [String] = predictions.prefix(1).map { prediction in
+            var name = prediction.classification
+
+            // For classifications with more than one name, keep the one before the first comma.
+            if let firstComma = name.firstIndex(of: ",") {
+                name = String(name.prefix(upTo: firstComma))
+            }
+
+            return "\(name) - \(prediction.confidencePercentage)%"
+        }
+
+        return topPredictions
     }
     
     func barcodeScanner(image: UIImage, prediction: String) {

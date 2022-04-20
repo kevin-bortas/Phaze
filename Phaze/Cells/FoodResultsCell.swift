@@ -42,7 +42,6 @@ class FoodResultsCell: BaseCell, ChartViewDelegate {
     
     var name: UILabel = {
         var label = UILabel()
-        label.text = ModelResultsHolder.modelResult?.label
         return label
     }()
     
