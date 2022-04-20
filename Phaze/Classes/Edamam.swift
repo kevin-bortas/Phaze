@@ -19,8 +19,10 @@ class Edamam {
     }
     
     func get(query: String) async -> [String:AnyObject] {
-        let splitQuery = query.lowercased().split(separator: " ")
-        var constructedQuery: String
+        
+        let splitQuery = query.lowercased().split(separator: "_")
+        var constructedQuery: String = ""
+        print(splitQuery)
         if (splitQuery.count > 1){
             constructedQuery = splitQuery.joined(separator: "%20")
         }
@@ -28,16 +30,28 @@ class Edamam {
             constructedQuery = splitQuery.joined(separator: "")
         }
         
+        let splitQuery2 = constructedQuery.lowercased().split(separator: " ")
+        if (splitQuery2.count > 1){
+            constructedQuery = splitQuery2.joined(separator: "%20")
+        }
+        else {
+            constructedQuery = splitQuery2.joined(separator: "")
+        }
+        
+        if (constructedQuery.last == " "){
+            constructedQuery.dropLast()
+        }
+        
         let requestString = "https://api.edamam.com/api/food-database/v2/parser?app_id=f635a9ab&app_key=fee3c57a8a37a553efef8356f775f5c3&nutrition-type=cooking&" + constructedQuery
         
-        let url = URL(string: requestString)!
+        let url = URL(string: requestString)
         
         let food = Task { () -> [String:AnyObject] in
             
             var food: [String:AnyObject] = [:]
             do {
                 if #available(iOS 15.0, *) {
-                    food = try await performRequest(url: url)
+                    food = try await performRequest(url: url!)
                 } else {
                     // Fallback on earlier versions
                 }

@@ -17,19 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqE-eF-E0N">
-                                <rect key="frame" x="20" y="431" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqE-eF-E0N">
+                                <rect key="frame" x="20" y="197" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nOV-f4-wFs">
-                                <rect key="frame" x="20" y="473" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nOV-f4-wFs">
+                                <rect key="frame" x="20" y="236" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Go-s8-jWV">
-                                <rect key="frame" x="20" y="515" width="374" height="30"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Go-s8-jWV">
+                                <rect key="frame" x="20" y="275" width="374" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                 </state>
@@ -37,34 +37,46 @@
                                     <action selector="didTapLoginButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rI5-4V-ABJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNB-va-oAb">
+                                <rect key="frame" x="20" y="310" width="374" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <state key="normal" title="Sign-Up">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoginButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qCW-zR-shb"/>
+                                    <action selector="didTapSignUpButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="15g-9s-oJW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nOV-f4-wFs" secondAttribute="trailing" id="6sd-he-uoT"/>
-                            <constraint firstItem="nOV-f4-wFs" firstAttribute="top" secondItem="CqE-eF-E0N" secondAttribute="bottom" constant="8" id="MJ3-Yv-x3I"/>
-                            <constraint firstItem="2Go-s8-jWV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TSM-wP-COv"/>
-                            <constraint firstItem="nOV-f4-wFs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XFU-v3-GYx"/>
-                            <constraint firstItem="CqE-eF-E0N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ych-sh-h6w"/>
-                            <constraint firstItem="CqE-eF-E0N" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="gqC-5d-cZk"/>
-                            <constraint firstItem="2Go-s8-jWV" firstAttribute="top" secondItem="nOV-f4-wFs" secondAttribute="bottom" constant="8" id="oQx-K6-mye"/>
-                            <constraint firstItem="CqE-eF-E0N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ow0-dW-vUK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqE-eF-E0N" secondAttribute="trailing" id="pbj-Ff-mfB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Go-s8-jWV" secondAttribute="trailing" id="w0H-P0-Ugb"/>
-                            <constraint firstItem="nOV-f4-wFs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wzp-Ow-RGx"/>
-                            <constraint firstItem="2Go-s8-jWV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="z8e-K4-Qs4"/>
+                            <constraint firstItem="fNB-va-oAb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4ad-3E-ydi"/>
+                            <constraint firstItem="CqE-eF-E0N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="153" id="7Qa-1n-i6Z"/>
+                            <constraint firstItem="nOV-f4-wFs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ab4-Tg-mHt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Go-s8-jWV" secondAttribute="trailing" constant="20" id="Jkr-9X-vvn"/>
+                            <constraint firstItem="2Go-s8-jWV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Rdw-cO-87R"/>
+                            <constraint firstItem="nOV-f4-wFs" firstAttribute="top" secondItem="CqE-eF-E0N" secondAttribute="bottom" constant="5" id="Xbe-Lb-U8R"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqE-eF-E0N" secondAttribute="trailing" constant="20" id="jT5-Yg-wzf"/>
+                            <constraint firstItem="2Go-s8-jWV" firstAttribute="top" secondItem="nOV-f4-wFs" secondAttribute="bottom" constant="5" id="jm7-hF-fBR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fNB-va-oAb" secondAttribute="trailing" constant="20" id="k11-mc-3RU"/>
+                            <constraint firstItem="fNB-va-oAb" firstAttribute="top" secondItem="2Go-s8-jWV" secondAttribute="bottom" constant="5" id="lDQ-Wg-neq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nOV-f4-wFs" secondAttribute="trailing" constant="20" id="vXD-Dc-0MP"/>
+                            <constraint firstItem="CqE-eF-E0N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yet-Rf-pQk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aJw-eP-Emw"/>
                     <connections>
                         <outlet property="btnLogin" destination="2Go-s8-jWV" id="IjQ-e3-sxm"/>
+                        <outlet property="btnSignUp" destination="fNB-va-oAb" id="Xa6-N4-mCe"/>
                         <outlet property="txtPassword" destination="nOV-f4-wFs" id="yo7-DV-g19"/>
                         <outlet property="txtUsername" destination="CqE-eF-E0N" id="tEN-r1-X67"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="835"/>
+            <point key="canvasLocation" x="2215.9420289855075" y="834.375"/>
         </scene>
         <!--Custom Page View Controller-->
         <scene sceneID="Pqc-If-Wi0">
@@ -844,9 +856,6 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let elements = ["Delete Account", "Privacy & Security", "Help & Support", "About", "Logout"]
+    let elements = ["Privacy & Security", "Help & Support", "About", "Logout"]
 
     
     
@@ -28,10 +28,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected \(elements[indexPath.row]).")
-        
-        if (elements[indexPath.row] == "Delete Account") {
-            UIApplication.shared.open(URL(string: "https://www.programiz.com/swift-programming/if-else-statement#:~:text=The%20if...else%20statement%20evaluates%20the%20condition%20inside%20the,code%20inside%20else%20is%20skipped")!, options: [:], completionHandler: nil)
-        }
         
         if (elements[indexPath.row] == "Privacy & Security") {
             UIApplication.shared.open(URL(string: "https://www.privacypolicies.com/live/1262b0a2-1e18-4c19-81f2-49d6c51b9f46")!, options: [:], completionHandler: nil)
