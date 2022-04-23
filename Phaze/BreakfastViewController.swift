@@ -8,16 +8,17 @@
 
 import UIKit
 
+// This displays the foods in breakfast recorded by the user and allows them to delete items
 class BreakfastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let elements = Breakfast.getMeals()
-
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var displayLabel: UILabel!
     var index: Int?
     
+    // Go back to main activity if back button pressed
     @IBAction func BackButton(_ sender: Any) {
         guard let vc =
             self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
@@ -35,6 +36,7 @@ class BreakfastViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
     }
     
+    // If a food item is tapped, delete it and update the user
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected \(elements[indexPath.row]).")
         
@@ -49,6 +51,7 @@ class BreakfastViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         User.updateMeals()
 
+        // Refresh the page
         guard let vc =
             self.storyboard?.instantiateViewController(withIdentifier: "BreakfastView") else {
             return
@@ -72,8 +75,6 @@ class BreakfastViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 3.5
 
         cell.breakfastLabel.text = elements[indexPath.row].getName()
-//        cell.breakfastImage.image = UIImage(named: elements[indexPath.row])
-//        cell.settingsImage.layer.cornerRadius = cell.settingsImage.frame.height / 2
 
         return cell
     }

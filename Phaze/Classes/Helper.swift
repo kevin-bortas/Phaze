@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class Helper {
+    
+    // Function converts a hex String into a UI Color (Swift object)
     static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 

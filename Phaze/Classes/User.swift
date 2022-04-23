@@ -85,14 +85,19 @@ class User {
         }
     }
     
+    // Gets the logged in user nutritional information from our database
     static func getUserNutritionalInformation(){
         
+        // For each field
         let types = ["calories", "protein", "carbs", "fat", "Breakfast", "Lunch", "Dinner", "Snacks"]
         
         for type in types {
+            
+            // This sleep is added in because too many requests can disrupt our database and extra processes are expensive $$$
             usleep(200000)
             let newUrl = self.url + "retrieve_info"
         
+            // Creates the request body
             let url = URL(string: newUrl)!
             var request = URLRequest(url: url)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -103,6 +108,7 @@ class User {
             ]
             request.httpBody = parameters.percentEncoded()
 
+            // Sends request and gets result
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data,
                     let response = response as? HTTPURLResponse,
@@ -234,10 +240,12 @@ class User {
         }
     }
     
+    // Updates the user nutritional information on our server
     static func updateServer(type:String){
         usleep(200000)
         var value:String = "";
         
+        // For each field
         switch (type){
             case "calories":
                 value = String(getCaloriesEaten())
@@ -257,6 +265,7 @@ class User {
         
         let newUrl = self.url + "update_micro"
     
+        // Creates request body
         let url = URL(string: newUrl)!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -269,6 +278,7 @@ class User {
         ]
         request.httpBody = parameters.percentEncoded()
 
+        // Sends out request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
@@ -294,14 +304,17 @@ class User {
         task.resume()
     }
     
+    // Updates the meals that the current user ate
     static func updateMeals(){
         
+        // For each meal field
         let meals = ["Breakfast", "Lunch", "Dinner", "Snacks"]
         
         for meal in meals {
             usleep(200000)
             var mealInformation:String = ""
             
+            // Gets corresponding meal data
             switch (meal){
                 case "Breakfast":
                     // Builds string from meals in breakfast
@@ -341,6 +354,7 @@ class User {
             
             let newUrl = self.url + "update_food"
             
+            // Creates request body
             let url = URL(string: newUrl)!
             var request = URLRequest(url: url)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -353,6 +367,7 @@ class User {
             ]
             request.httpBody = parameters.percentEncoded()
 
+            // Sends request
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data,
                     let response = response as? HTTPURLResponse,

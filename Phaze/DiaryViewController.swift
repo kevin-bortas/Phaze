@@ -9,10 +9,9 @@
 import UIKit
 import Charts
 
+// This is the view for the diary page
 class DiaryViewController: UIViewController, ChartViewDelegate {
     
-//    @IBOutlet weak var stackView: UIStackView!
-//    @IBOutlet var tableView: UITableView!
     @IBOutlet var scrollView: UIScrollView!
     
     var stackView = UIStackView()
@@ -25,10 +24,10 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     
     var v = UIView()
     var edamam = Edamam()
-    
-//    var tv = UITableView()
+
     var cell = CustomTableViewCell()
     
+    // Creates meal fields
     let meals = [
         "Breakfast",
         "Lunch",
@@ -36,6 +35,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         "Snacks"
     ]
     
+    // Creates different ui elements
     let informationLegend: UIStackView = {
         let sv = UIStackView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         sv.backgroundColor = UIColor.white
@@ -128,8 +128,6 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
     let fatStackView: UIStackView = {
         let sv = UIStackView()
         sv.backgroundColor = UIColor.white
-//        sv.isLayoutMarginsRelativeArrangement = true
-//        sv.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         return sv
     }()
     
@@ -139,12 +137,10 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         label.textAlignment = .left
         label.font = .systemFont(ofSize: CGFloat(fontSize))
         label.heightAnchor.constraint(equalToConstant: 75).isActive = true
-//        label.widthAnchor.constraint(equalToConstant: 20).isActive = true
         label.paddingTop = 25
         label.paddingLeft = 15
         label.paddingBottom = 25
         label.text = "Meals"
-//        label.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
         return label
     }()
     
@@ -194,8 +190,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         stackView.backgroundColor = UIColor.white
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-//        view.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
-        
+        // Sets up the different sections
         getCurrentDate()
         setUpPieChart()
         animateChart()
@@ -214,6 +209,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         ])
     }
     
+    // Gets the current date
     private func getCurrentDate(){
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -236,18 +232,13 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         label.font = .systemFont(ofSize: CGFloat(fontSize))
         label.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         label.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        label.backgroundColor = .systemYellow
     }
     
+    // Sets up the pie chart
     private func setUpPieChart(){
-//        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
-//        pieChart.center = view.center
-        
-//        pieChart.backgroundColor = .systemBlue
-//
         pieChart.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         pieChart.heightAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
-//
+
         pieChart.usePercentValuesEnabled = false
         pieChart.drawEntryLabelsEnabled = false
         pieChart.drawMarkers = false
@@ -258,10 +249,9 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         
         setUpChartText()
         setUpChartData()
-        
-//        view.addSubview(pieChart)
     }
     
+    // Sets up the center pie chart text
     private func setUpChartText(){
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
@@ -290,9 +280,11 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         pieChart.centerAttributedText = centerText
     }
     
+    // Sets up the pie chart data
     private func setUpChartData(){
         var entries = [ChartDataEntry]()
         
+        // Gets the data from the User class
         var nutritionalInfo = [["Protein", User.getTotalProtein()], ["Carbohydrates", User.getTotalCarbs()], ["Fat", User.getTotalFat()]]
         
         if (User.getCaloriesEaten() == 0){
@@ -319,10 +311,12 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         pieChart.data = data
     }
     
+    // This animates the pie chart
     private func animateChart(){
         pieChart.animate(xAxisDuration: 0.6, yAxisDuration: 0.6)
     }
     
+    // Sets up the stack views for the page
     private func setupStackView() {
         setUpBreakfastButton()
         setUpLunchButton()
@@ -494,6 +488,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         scrollView.addSubview(stackView)
     }
     
+    // Creates the breakfast button
     func setUpBreakfastButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -508,6 +503,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         breakfastButton = newLabel
     }
     
+    // Creates the lunch button
     func setUpLunchButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -522,6 +518,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         lunchButton = newLabel
     }
     
+    // Creates the dinner button
     func setUpDinnerButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -536,6 +533,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         dinnerButton = newLabel
     }
     
+    // Creates the snacks button
     func setUpSnacksButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -550,6 +548,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         snacksButton = newLabel
     }
     
+    // When the breakfast button is tapped, display breakfast foods
     @objc func breakfastTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
             breakfastStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
@@ -564,6 +563,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // When the lunch button is tapped, display lunch foods
     @objc func lunchTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
             lunchStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
@@ -578,6 +578,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // When the dinner button is tapped, display dinner foods
     @objc func dinnerTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
             dinnerStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
@@ -592,6 +593,7 @@ class DiaryViewController: UIViewController, ChartViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // When the snacks button is tapped, display snack foods
     @objc func snacksTapFunction(gesture: UITapGestureRecognizer) {
         snacksStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         if gesture.state == .ended || gesture.state == .cancelled {

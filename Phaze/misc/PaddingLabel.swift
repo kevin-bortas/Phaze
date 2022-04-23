@@ -11,6 +11,9 @@ import UIKit
 
 @IBDesignable
 class PaddingLabel: UILabel {
+    
+    // This class is created to add a padding parameter to the UI Label object
+    
     var textEdgeInsets = UIEdgeInsets.zero {
         didSet { invalidateIntrinsicContentSize() }
     }

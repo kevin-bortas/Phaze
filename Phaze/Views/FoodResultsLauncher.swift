@@ -20,6 +20,7 @@ class FoodResults: NSObject{
     }
 }
 
+// This is the launcher for the food results after taking a photo of a food or barcode
 class FoodResultsLauncher: NSObject, ChartViewDelegate {
     
     let blackview = UIView()
@@ -36,6 +37,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         return cv
     }()
     
+    // Stackviews are used to stack different views (objects) in a vertical or horizontal orientation
     let stackView: UIStackView = {
         let sv = UIStackView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         sv.backgroundColor = UIColor.white
@@ -77,6 +79,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         return sv
     }()
 
+    // Labels for different macro nutrient fields
     let carbLabel: UILabel = {
         let fontSize = 15
         let label = PaddingLabel()
@@ -243,6 +246,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
             // This shows the pop-up menu with the information.
             window.addSubview(stackView)
             
+            // Resizes the window
             let height: CGFloat = CGFloat(6) * 100
             let y = window.frame.height - height
             stackView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
@@ -278,10 +282,11 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         })
     }
     
+    // This function sets up the stack views and adds each label to them
     private func setupStackView() {
-        proteinView.backgroundColor = hexStringToUIColor(hex: "#F86285")
-        carbView.backgroundColor = hexStringToUIColor(hex: "#FFE570")
-        fatView.backgroundColor = hexStringToUIColor(hex: "#71D6CA")
+        proteinView.backgroundColor = Helper.hexStringToUIColor(hex: "#F86285")
+        carbView.backgroundColor = Helper.hexStringToUIColor(hex: "#FFE570")
+        fatView.backgroundColor = Helper.hexStringToUIColor(hex: "#71D6CA")
         
         proteinStackView.addArrangedSubview(proteinLabel)
         proteinStackView.addArrangedSubview(proteinValue)
@@ -344,6 +349,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         stackView.isUserInteractionEnabled = true
     }
 
+    // This function initialises the pie chart and sets its values
     private func setUpPieChart(width: CGFloat, food: Food){
         pieChart.widthAnchor.constraint(equalToConstant: width).isActive = true
         pieChart.heightAnchor.constraint(equalToConstant: width).isActive = true
@@ -361,6 +367,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         setUpChartData(food: food)
     }
 
+    // This function sets up the center text in the pie chart
     private func setUpChartText(food: Food){
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
@@ -369,7 +376,6 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
 
         let stringOne = String(food.getCaloriesInt())
         let stringTwo = "cals"
-//        let stringThree = "of 2000"
         let attributes = [ NSAttributedString.Key.paragraphStyle: style,
                            NSAttributedString.Key.foregroundColor: UIColor.black,
                            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Light", size:35.0)!]
@@ -387,6 +393,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         pieChart.centerAttributedText = centerText
     }
 
+    // This sets up the values in the pie chart
     private func setUpChartData(food: Food){
         var entries = [ChartDataEntry]()
 
@@ -411,37 +418,38 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         set.drawValuesEnabled = false
 
         var  colors: [UIColor] = []
-        colors.append(hexStringToUIColor(hex: "#F86285"))
-        colors.append(hexStringToUIColor(hex: "#FFE570"))
-        colors.append(hexStringToUIColor(hex: "#71D6CA"))
+        colors.append(Helper.hexStringToUIColor(hex: "#F86285"))
+        colors.append(Helper.hexStringToUIColor(hex: "#FFE570"))
+        colors.append(Helper.hexStringToUIColor(hex: "#71D6CA"))
         set.colors = colors
 
         let data = PieChartData(dataSet: set)
         pieChart.data = data
     }
 
-    private func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
+//    private func hexStringToUIColor (hex:String) -> UIColor {
+//        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+//
+//        if (cString.hasPrefix("#")) {
+//            cString.remove(at: cString.startIndex)
+//        }
+//
+//        if ((cString.count) != 6) {
+//            return UIColor.gray
+//        }
+//
+//        var rgbValue:UInt64 = 0
+//        Scanner(string: cString).scanHexInt64(&rgbValue)
+//
+//        return UIColor(
+//            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+//            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+//            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+//            alpha: CGFloat(1.0)
+//        )
+//    }
     
+    // On tap this brings us to the next page
     @objc func tapFunction() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackview.alpha = 0
@@ -462,6 +470,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
     }
 }
 
+// An extension to the stack view objects
 extension UIStackView {
     
     func removeFully(view: UIView) {

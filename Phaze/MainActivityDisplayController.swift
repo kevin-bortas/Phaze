@@ -16,6 +16,7 @@ class MainActivityDisplayController: UIViewController {
     
     var currentViewControllerIndex = 1
     
+    // This allows us to create the swiping effect between the 3 main pages (Settings page - Main Activity - Diary page)
     func configurePageViewController () {
         
         guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: "CustomPageViewController") as?
@@ -61,6 +62,9 @@ class MainActivityDisplayController: UIViewController {
             return nil
         }
         
+        // Each page has an index (0 = Settings page, 1 = Main Activity page, 2 = diary page)
+        
+        // Settings page
         if index == 0 {
             guard let dataViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: SettingsViewController.self)) as? SettingsViewController else {
                 return nil
@@ -69,12 +73,10 @@ class MainActivityDisplayController: UIViewController {
             // Change this to change details of displayed view controller
             dataViewController.index = index
             
-//            dataViewController.displayText = dataSource[index]
-            
-            
             return dataViewController
         }
 
+        // Main Activity
         else if index == 1 {
             guard let dataViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: MainActivityViewController.self)) as? MainActivityViewController else {
                 return nil
@@ -82,24 +84,18 @@ class MainActivityDisplayController: UIViewController {
             
             // Change this to change details of displayed view controller
             dataViewController.index = index
-//            dataViewController.displayText = dataSource[index]
-            
             
             return dataViewController
         }
 
+        // Diary page
         else {
-//            guard let dataViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: DiaryViewController) as? DataViewController else {
-//                return nil
-//            }
                 guard let dataViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: DiaryViewController.self)) as? DiaryViewController else {
                 return nil
             }
             
             // Change this to change details of displayed view controller
             dataViewController.index = index
-//            dataViewController.displayText = dataSource[index]
-            
             
             return dataViewController
         }
@@ -122,12 +118,7 @@ extension MainActivityDisplayController: UIPageViewControllerDelegate, UIPageVie
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-//        let dataViewController = viewController as? DataViewController
-//        print(dataViewController)
-        
         let dataViewController = viewController as? MainActivityViewController
-        
-//        var currentIndex = viewController.index
         
         guard var currentIndex = dataViewController?.index else {
             return nil

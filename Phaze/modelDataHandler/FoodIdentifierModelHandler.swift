@@ -6,6 +6,8 @@
 //  Copyright © 2022 UnKnown. All rights reserved.
 //
 
+// This code was gotten from https://developer.apple.com/documentation/coreml/integrating_a_core_ml_model_into_your_app
+
 import Vision
 import UIKit
 

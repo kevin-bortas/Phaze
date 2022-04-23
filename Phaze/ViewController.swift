@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+// This is the first page (login and sign-up page)
 class ViewController: UIViewController {
     
     @IBOutlet var btnLogin: UIButton!
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
         User.resetUser()
     }
     
+    // If login button tapped, then log in
     @IBAction func didTapLoginButton(sender: UIButton) {
         if (txtUsername.text! != "" && txtPassword.text! != ""){
             login()
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // If sign up button tapped, then sign up
     @IBAction func didTapSignUpButton(sender: UIButton) {
         if (txtUsername.text! != "" && txtPassword.text! != ""){
             signUp()
@@ -40,6 +43,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Goes to the main activity view controller
     func goToMainActivity(){
         guard let vc =
             self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
@@ -48,6 +52,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // Signs a user up (register)
     func signUp() {
         let newUrl = User.url + "register"
         
@@ -56,6 +61,7 @@ class ViewController: UIViewController {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         
+        // Creates a username and password
         let username = txtUsername.text!
         let password = txtPassword.text!
         
@@ -65,6 +71,7 @@ class ViewController: UIViewController {
         ]
         request.httpBody = parameters.percentEncoded()
 
+        // Sends the request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
@@ -79,6 +86,7 @@ class ViewController: UIViewController {
                 return
             }
 
+            // If success, log user in
             let responseString = String(data: data, encoding: .utf8)
             if (response.statusCode == 200){
                 User.username = username
@@ -94,6 +102,7 @@ class ViewController: UIViewController {
         
       }
     
+    // Logs the user in if he exists
     func login() {
         let newUrl = User.url + "login"
         
@@ -125,6 +134,7 @@ class ViewController: UIViewController {
                 return
             }
 
+            // If its a success, log the user in
             let responseString = String(data: data, encoding: .utf8)
             if (response.statusCode == 200){
                 User.username = username
@@ -142,6 +152,7 @@ class ViewController: UIViewController {
 
 }
 
+// This extension is used for the dictionary type and allows us to format it correctly before sending to our database
 extension Dictionary {
     func percentEncoded() -> Data? {
         return map { key, value in

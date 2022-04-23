@@ -62,46 +62,7 @@ class Food {
         foodInfo.append("" + String(fat))
         foodInfo.append("" + String(carbs))
     }
-
-    // Food class constructor
-//    func Food(String n, double c, double p, double f, double cb, Map<String, Integer> measures)
-//    {
-//        // Capitalises all words in the name
-//        if (n.contains(" ")) {
-//            String[] tmp = n.split(" ")
-//            String newString = ""
-//            if (tmp.length > 1) {
-//                for (int i = 0 i < tmp.length i++) {
-//                    newString += tmp[i].substring(0, 1).toUpperCase() + tmp[i].substring(1) + " "
-//                }
-//                n = newString.substring(0, newString.length() - 1)
-//            }
-//            setName(n)
-//        } else {
-//            setName(n.substring(0, 1).toUpperCase() + n.substring(1))
-//        }
-//
-//        // Sets the current calories and original calories
-//        setCalories(c)
-//        setCaloriesO(c)
-//
-//        // Sets the current protein and original protein
-//        setProtein(p)
-//        setProteinO(p)
-//
-//        // Sets the current fat and original fat
-//        setFat(f)
-//        setFatO(f)
-//
-//        // Sets the current carbs and original carbs
-//        setCarbs(cb)
-//        setCarbsO(cb)
-//
-//        // Sets the food measurements (serving sizes)
-//        setMeasurements(measures)
-//        setFoodInfo()
-//    }
-
+    
     // Adds the food infor to a List
     func setFoodInfo()
     {

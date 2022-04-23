@@ -5,6 +5,8 @@ Abstract:
 Core Graphics utility extension that creates CGImagePropertyOrientation from a UIImage Orientation.
 */
 
+// This code was gotten from https://developer.apple.com/documentation/coreml/integrating_a_core_ml_model_into_your_app
+
 import UIKit
 import ImageIO
 

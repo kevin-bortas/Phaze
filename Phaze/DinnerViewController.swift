@@ -11,14 +11,13 @@ import UIKit
 class DinnerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let elements = Dinner.getMeals()
-
-    
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var displayLabel: UILabel!
     var index: Int?
     
+    // Go back to main activity if back button pressed
     @IBAction func BackButton(_ sender: Any) {
         guard let vc =
             self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
@@ -36,6 +35,7 @@ class DinnerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
     }
     
+    // If a food item is tapped, delete it and update the user
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected \(elements[indexPath.row]).")
         
@@ -50,6 +50,7 @@ class DinnerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         User.updateMeals()
 
+        // Refresh the page
         guard let vc =
             self.storyboard?.instantiateViewController(withIdentifier: "DinnerView") else {
             return

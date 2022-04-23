@@ -23,7 +23,6 @@
 		0A67F1382801EE2200811749 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67F1372801EE2200811749 /* APICaller.swift */; };
 		0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAC27983E4C0021A41E /* CurvedView.swift */; };
 		0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB1279841460021A41E /* InfoCell.swift */; };
-		0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */; };
 		0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */; };
 		0A9218B228102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B028102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift */; };
 		0A9218B328102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9218B128102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
@@ -112,7 +111,6 @@
 		0A6F46A527D0F62200271C59 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7ECAAC27983E4C0021A41E /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		0A7ECAB1279841460021A41E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
-		0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVPixelBufferExtension.swift; sourceTree = "<group>"; };
 		0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActivityViewController.swift; sourceTree = "<group>"; };
 		0A9218B028102C8600F7E2C0 /* VNClassificationObservation+confidenceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VNClassificationObservation+confidenceString.swift"; sourceTree = "<group>"; };
 		0A9218B128102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 				0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */,
 				0A0038A327982E9B004608D0 /* FoodViewController.swift */,
 				1C57A25127CB8260007B79B8 /* CustomTableViewCell.swift */,
-				0A7ECAB4279842A90021A41E /* CVPixelBufferExtension.swift */,
 				0AB7249527849BD3005CA6A4 /* Main.storyboard */,
 				0AB7249827849BD4005CA6A4 /* Assets.xcassets */,
 				0AB7249A27849BD4005CA6A4 /* LaunchScreen.storyboard */,
@@ -677,7 +674,6 @@
 				0A9218B528102CA200F7E2C0 /* NewFoodClassifierPhaze2022_3.mlmodel in Sources */,
 				0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */,
 				0A3B74A32807426E001612B8 /* CustomSnackTableViewCell.swift in Sources */,
-				0A7ECAB5279842A90021A41E /* CVPixelBufferExtension.swift in Sources */,
 				0A3B74A02807426E001612B8 /* CustomDinnerTableViewCell.swift in Sources */,
 				0AD1206A279DEAFC007609A5 /* FoodResultsCell.swift in Sources */,
 				1C7D918728038BBE00199BA7 /* SnackViewController.swift in Sources */,

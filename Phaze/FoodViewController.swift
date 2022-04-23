@@ -19,13 +19,6 @@ class FoodViewController: UIViewController {
     
     var food: Food?
     
-//    let meals = [
-//        "Breakfast",
-//        "Lunch",
-//        "Dinner",
-//        "Snacks"
-//    ]
-    
     var breakfastButton = UILabel()
     var lunchButton = UILabel()
     var dinnerButton = UILabel()
@@ -68,31 +61,16 @@ class FoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
-        
-        // Styling tableView
-//        tableView.separatorStyle = .none
-//        tableView.showsVerticalScrollIndicator = false
-
-        // Do any additional setup after loading the view.
-        
         setUpAllStackViews()
     }
     
-    
-    //Add button to add to the food diary and progress to the next page.
-//    @IBAction func didTapAddButton(sender: UIButton) {
-//        goToMealView()
+//    func goToMealView(){
+//        guard let vc =
+//            self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
+//            return
+//        }
+//        self.navigationController?.pushViewController(vc, animated: false)
 //    }
-    
-    func goToMealView(){
-        guard let vc =
-            self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: false)
-    }
     
     
     //Back button to go back to the previous page.
@@ -100,18 +78,20 @@ class FoodViewController: UIViewController {
         goToMainActivity()
     }
     
+    // Goes to the main activity after user selected a meal to add the food to
     func goToMainActivity(){
         guard let vc =
             self.storyboard?.instantiateViewController(withIdentifier: "MainActivityDisplayController") else {
             return
         }
         
-        print("hello")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // Sets up the page view using the stack views
     func setUpAllStackViews(){
         
+        // Sets up the buttons for the different meals
         setUpBreakfastButton()
         setUpLunchButton()
         setUpDinnerButton()
@@ -124,7 +104,7 @@ class FoodViewController: UIViewController {
         
         breaker.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker2: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -132,7 +112,7 @@ class FoodViewController: UIViewController {
         }()
         breaker2.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker2.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker2.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker2.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker3: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -140,7 +120,7 @@ class FoodViewController: UIViewController {
         }()
         breaker3.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker3.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker3.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker3.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker4: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -148,7 +128,7 @@ class FoodViewController: UIViewController {
         }()
         breaker4.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker4.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker4.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker4.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         let breaker5: UIView = {
             let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
@@ -156,7 +136,7 @@ class FoodViewController: UIViewController {
         }()
         breaker5.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breaker5.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        breaker5.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        breaker5.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         
         breakfastStackView.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
         breakfastStackView.heightAnchor.constraint(equalToConstant: stackView.frame.width * 0.20).isActive = true
@@ -233,9 +213,9 @@ class FoodViewController: UIViewController {
         stackView.distribution = .equalCentering
         stackView.spacing = 0
         stackView.isUserInteractionEnabled = true
-        
     }
     
+    // Creates the breakfast button
     func setUpBreakfastButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -250,6 +230,7 @@ class FoodViewController: UIViewController {
         breakfastButton = newLabel
     }
     
+    // Creates the lunch button
     func setUpLunchButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -264,6 +245,7 @@ class FoodViewController: UIViewController {
         lunchButton = newLabel
     }
     
+    // Creates the dinner button
     func setUpDinnerButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -278,6 +260,7 @@ class FoodViewController: UIViewController {
         dinnerButton = newLabel
     }
     
+    // Creates the snacks button
     func setUpSnacksButton(){
         let fontSize = 30
         let newLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: stackView.frame.width, height: stackView.frame.height))
@@ -292,67 +275,54 @@ class FoodViewController: UIViewController {
         snacksButton = newLabel
     }
     
+    // This is the tap gesture recogniser for the breakfast button
     @objc func breakfastTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
-            breakfastStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+            breakfastStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         } else if gesture.state == .ended || gesture.state == .cancelled {
             breakfastStackView.backgroundColor = .white
         }
         
+        // Adds food to breakfast
         addMeal(meal: "breakfast")
     }
     
+    // This is the tap gesture recogniser for the lunch button
     @objc func lunchTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
-            lunchStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+            lunchStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         } else if gesture.state == .ended || gesture.state == .cancelled {
             lunchStackView.backgroundColor = .white
         }
         
+        // Adds food to lunch
         addMeal(meal: "lunch")
     }
     
+    // This is the tap gesture recogniser for the dinner button
     @objc func dinnerTapFunction(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
-            dinnerStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+            dinnerStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         } else if gesture.state == .ended || gesture.state == .cancelled {
             dinnerStackView.backgroundColor = .white
         }
         
+        // Adds food to dinner
         addMeal(meal: "dinner")
     }
     
+    // This is the tap gesture recogniser for the snacks button
     @objc func snacksTapFunction(gesture: UITapGestureRecognizer) {
-        snacksStackView.backgroundColor = hexStringToUIColor(hex: "#F4F5F6")
+        snacksStackView.backgroundColor = Helper.hexStringToUIColor(hex: "#F4F5F6")
         if gesture.state == .ended || gesture.state == .cancelled {
             snacksStackView.backgroundColor = .white
         }
         
+        // Adds the food to snacks
         addMeal(meal: "snacks")
     }
     
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
+    // Adds the food to the corresponding meal selected
     func addMeal(meal: String) {
         switch(meal){
         case "breakfast":
@@ -365,16 +335,19 @@ class FoodViewController: UIViewController {
             Snacks.addMeal(food: food!)
         }
         
+        // Updates the user locally
         User.update()
         
+        // Updates the database corresponding to the current user for each of the fields
         let types = ["calories", "protein", "carbs", "fat"]
-
         for type in types{
             User.updateServer(type: type)
         }
         
-//        User.updateServer(type: "protein")
+        // Updates the meals for this user on the database
         User.updateMeals()
+        
+        // Goes to the main pages
         goToMainActivity()
     }
     

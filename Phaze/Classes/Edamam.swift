@@ -10,6 +10,7 @@ import Foundation
 
 class Edamam {
     
+    // Our API keys
     let food_appid: String
     let food_appkey: String
     
@@ -18,8 +19,10 @@ class Edamam {
         self.food_appkey = "fee3c57a8a37a553efef8356f775f5c3"
     }
     
+    // Queries the Food Database API (Edamam) with our predicted food or barcode and returns its nutritional information
     func get(query: String) async -> [String:AnyObject] {
         
+        // Pre-processes the food string before passing it in the url
         let splitQuery = query.lowercased().split(separator: "_")
         var constructedQuery: String = ""
         print(splitQuery)
@@ -46,6 +49,7 @@ class Edamam {
         
         let url = URL(string: requestString)
         
+        // Starts a new task -> queries database -> returns the food object
         let food = Task { () -> [String:AnyObject] in
             
             var food: [String:AnyObject] = [:]
@@ -67,6 +71,7 @@ class Edamam {
         
     }
 
+    // Function that sends the get request to the Edamam food database
     @available(iOS 15.0, *)
     private func performRequest(url: URL) async throws -> [String:AnyObject] {
 
