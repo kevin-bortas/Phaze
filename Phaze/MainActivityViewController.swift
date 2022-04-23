@@ -37,7 +37,7 @@ class MainActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        previewLayer.backgroundColor = UIColor.systemRed.cgColor
+        previewLayer.backgroundColor = UIColor.black.cgColor
 
         // Do any additional setup after loading the view.
         view.layer.addSublayer(previewLayer)
@@ -177,10 +177,6 @@ extension MainActivityViewController: AVCapturePhotoCaptureDelegate {
         classifyImage(cropedToSquareImage!)
         let myResult = prediction.split(separator: "-")
         print(myResult[0])
-
-//        guard let pixelBuffer = cropedToSquareImage?.pixelBuffer() else {
-//            fatalError()
-//        }
         
         // Checks if there is a barcode in the picture
         barcodeScanner(image: image, prediction: "ingr=" + myResult[0])

@@ -313,7 +313,7 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         informationLegend.addArrangedSubview(carbStackView)
         informationLegend.addArrangedSubview(fatStackView)
         
-        addFood.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapFunction)))
+        addFood.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addFoodAction)))
         
         informationLegend.axis = .vertical
         informationLegend.distribution = .fillEqually
@@ -426,31 +426,9 @@ class FoodResultsLauncher: NSObject, ChartViewDelegate {
         let data = PieChartData(dataSet: set)
         pieChart.data = data
     }
-
-//    private func hexStringToUIColor (hex:String) -> UIColor {
-//        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-//
-//        if (cString.hasPrefix("#")) {
-//            cString.remove(at: cString.startIndex)
-//        }
-//
-//        if ((cString.count) != 6) {
-//            return UIColor.gray
-//        }
-//
-//        var rgbValue:UInt64 = 0
-//        Scanner(string: cString).scanHexInt64(&rgbValue)
-//
-//        return UIColor(
-//            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-//            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-//            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-//            alpha: CGFloat(1.0)
-//        )
-//    }
     
     // On tap this brings us to the next page
-    @objc func tapFunction() {
+    @objc func addFoodAction() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackview.alpha = 0
 

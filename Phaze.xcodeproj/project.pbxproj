@@ -20,7 +20,6 @@
 		0A3B74A22807426E001612B8 /* CustomLunchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B749E2807426D001612B8 /* CustomLunchTableViewCell.swift */; };
 		0A3B74A32807426E001612B8 /* CustomSnackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B749F2807426E001612B8 /* CustomSnackTableViewCell.swift */; };
 		0A4575C82803826E008A6D69 /* BreakfastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4575C72803826E008A6D69 /* BreakfastViewController.swift */; };
-		0A67F1382801EE2200811749 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67F1372801EE2200811749 /* APICaller.swift */; };
 		0A7ECAAD27983E4C0021A41E /* CurvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAAC27983E4C0021A41E /* CurvedView.swift */; };
 		0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7ECAB1279841460021A41E /* InfoCell.swift */; };
 		0A8784BB2790579300BBFC44 /* MainActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8784BA2790579300BBFC44 /* MainActivityViewController.swift */; };
@@ -32,7 +31,6 @@
 		0A97B01927A2E65E009C1586 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01827A2E65E009C1586 /* SwipingController.swift */; };
 		0A97B01B27A2E991009C1586 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01A27A2E991009C1586 /* SettingsViewController.swift */; };
 		0A97B01F27A2EBE4009C1586 /* MainActivityDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B01E27A2EBE4009C1586 /* MainActivityDisplayController.swift */; };
-		0A97B02127A2F2DE009C1586 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02027A2F2DE009C1586 /* DataViewController.swift */; };
 		0A97B02327A2F9A2009C1586 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */; };
 		0A97B02527A30B11009C1586 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B02427A30B11009C1586 /* DiaryViewController.swift */; };
 		0AB7249027849BD3005CA6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7248F27849BD3005CA6A4 /* AppDelegate.swift */; };
@@ -107,7 +105,6 @@
 		0A3B749F2807426E001612B8 /* CustomSnackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSnackTableViewCell.swift; path = ../../../../../../Downloads/CustomSnackTableViewCell.swift; sourceTree = "<group>"; };
 		0A4526D327A994BC00F47E79 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		0A4575C72803826E008A6D69 /* BreakfastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastViewController.swift; sourceTree = "<group>"; };
-		0A67F1372801EE2200811749 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		0A6F46A527D0F62200271C59 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7ECAAC27983E4C0021A41E /* CurvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedView.swift; sourceTree = "<group>"; };
 		0A7ECAB1279841460021A41E /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -120,7 +117,6 @@
 		0A97B01827A2E65E009C1586 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		0A97B01A27A2E991009C1586 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0A97B01E27A2EBE4009C1586 /* MainActivityDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActivityDisplayController.swift; sourceTree = "<group>"; };
-		0A97B02027A2F2DE009C1586 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		0A97B02427A30B11009C1586 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		0AB7248C27849BD3005CA6A4 /* Phaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,13 +316,11 @@
 				0AD12067279DE5F8007609A5 /* ImageViewController.swift */,
 				0A97B01A27A2E991009C1586 /* SettingsViewController.swift */,
 				0A97B01E27A2EBE4009C1586 /* MainActivityDisplayController.swift */,
-				0A97B02027A2F2DE009C1586 /* DataViewController.swift */,
 				0A97B02227A2F9A2009C1586 /* CustomPageViewController.swift */,
 				0A97B02427A30B11009C1586 /* DiaryViewController.swift */,
 				0AEB907127FE366600E2ABDD /* AccountSetUpViewController.swift */,
 				1C7D917A27FE4A9500199BA7 /* CustomSettingTableViewCell.swift */,
 				1C7D917C27FE5D8000199BA7 /* CustomWeightPlanTableViewCell.swift */,
-				0A67F1372801EE2200811749 /* APICaller.swift */,
 				0A4575C72803826E008A6D69 /* BreakfastViewController.swift */,
 				1C7D918228038B2A00199BA7 /* LunchViewController.swift */,
 				1C7D918428038B6F00199BA7 /* DinnerViewController.swift */,
@@ -651,7 +645,6 @@
 				1C7D918328038B2A00199BA7 /* LunchViewController.swift in Sources */,
 				0A9218B328102C8600F7E2C0 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				1C57A25227CB8260007B79B8 /* CustomTableViewCell.swift in Sources */,
-				0A67F1382801EE2200811749 /* APICaller.swift in Sources */,
 				1C7D917B27FE4A9500199BA7 /* CustomSettingTableViewCell.swift in Sources */,
 				0A19310027CEE6F8005C486C /* Lunch.swift in Sources */,
 				0A0038A427982E9B004608D0 /* FoodViewController.swift in Sources */,
@@ -678,7 +671,6 @@
 				0AD1206A279DEAFC007609A5 /* FoodResultsCell.swift in Sources */,
 				1C7D918728038BBE00199BA7 /* SnackViewController.swift in Sources */,
 				0A7ECAB2279841460021A41E /* InfoCell.swift in Sources */,
-				0A97B02127A2F2DE009C1586 /* DataViewController.swift in Sources */,
 				0A300BDA27E2070E00A7B6E5 /* PaddingLabel.swift in Sources */,
 				0AB7249227849BD3005CA6A4 /* SceneDelegate.swift in Sources */,
 				0A97B01B27A2E991009C1586 /* SettingsViewController.swift in Sources */,
